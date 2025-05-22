@@ -1,0 +1,82 @@
+/* all */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  .site-header {
+    background-color:  #dde6e5;
+    padding: 20px;
+    color: white;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .thankyou-message, .submitted-message {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #e0f7fa; 
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .thankyou-message h2, .submitted-message h2 {
+    color:  rgb(57, 228, 228);
+  }
+  
+  .thankyou-message p, .submitted-message p {
+    color: #555;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    background-color:  rgb(57, 228, 228);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .button:hover {
+    background-color:  rgb(57, 228, 228);
+  }
+  
+  /* رسپانسیو */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    .thankyou-message, .submitted-message {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    .button {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.2rem;
+    }
+  
+    .thankyou-message, .submitted-message {
+      width: 95%;
+      padding: 10px;
+    }
+  
+    .button {
+      font-size: 12px;
+      padding: 6px 12px;
+    }
+  }

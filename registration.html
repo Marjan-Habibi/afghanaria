@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Afghan Aria Private School</title>
+  <link rel="stylesheet" href="registration.css">
+  <script src="Java.js" defer></script>
+  <!-- Favicon -->
+  <link rel="icon" href="images/logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/logo.png">
+</head>
+<body>
+
+  <header class="site-header">
+    <h1>Afghan Aria Private School</h1>
+  </header>
+
+  <div class="form-container">
+    <h2>Student Registration Form</h2>
+
+    <!-- Form connected to send_email.php -->
+    <form action="send_email.php" method="POST" enctype="multipart/form-data">
+
+      <!-- Student Photo -->
+      <div class="form-group">
+        <label for="studentPhoto">Student Photo</label>
+        <input type="file" id="studentPhoto" name="studentPhoto" accept="image/*" required>
+      </div>
+
+      <!-- Full Name -->
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required>
+      </div>
+
+      <!-- Tazkira Number -->
+      <div class="form-group">
+        <label for="tazkira">Tazkira Number</label>
+        <input type="text" id="tazkira" name="tazkira" required>
+      </div>
+
+      <!-- Father's Name -->
+      <div class="form-group">
+        <label for="fatherName">Father's Name</label>
+        <input type="text" id="fatherName" name="fatherName" required>
+      </div>
+
+      <!-- Date of Birth -->
+      <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required>
+      </div>
+
+      <!-- Gender -->
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" required>
+          <option value="">-- Select Gender --</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+
+      <!-- Class -->
+      <div class="form-group">
+        <label for="class">Class</label>
+        <input type="text" id="class" name="class" required>
+      </div>
+
+      <!-- Address -->
+      <div class="form-group">
+        <label for="address">Home Address</label>
+        <textarea id="address" name="address" rows="3" required></textarea>
+      </div>
+
+      <!-- Phone Number -->
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email Address (optional)</label>
+        <input type="email" id="email" name="email">
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="submit-btn">Register</button>
+
+    </form>
+  </div>
+
+</body>
+</html>

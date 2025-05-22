@@ -1,0 +1,718 @@
+
+/* ---------- Header Style ---------- */
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(57, 228, 228);
+  color: #ffffff;
+  padding: 20px 30px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: visible;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  flex: 1 1 30%;
+}
+
+.logo h1 {
+  font-size: 24px;
+  color: white;
+  margin: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+nav {
+  flex: 1 1 60%;
+  text-align: right;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.nav-list li a:hover {
+  background-color:  rgb(57, 228, 228);
+  color: white;
+}
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+    text-align: center;
+  }
+
+  .logo {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .logo h1 {
+    font-size: 20px;
+    white-space: normal;
+  }
+
+  nav {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    gap: 10px;
+    width: 100%;
+  }
+
+  .nav-list li {
+    width: 100%;
+    text-align: center; 
+  }
+
+  .nav-list li a {
+    width: 100%;
+    padding: 10px 0;
+   
+  }
+}
+
+
+
+/* ----------- Extra Height for Laptop and Larger Screens ----------- */
+@media (min-width: 769px) {
+  header {
+    padding: 40px 60px; 
+  }
+
+  .logo h1 {
+    font-size: 26px;
+  }
+}
+
+
+.grid-container {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.large-box {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  color: #fff;
+  max-width: 45%;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20px 25px;
+  border-radius: 6px;
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: slideIn 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+/* Animation */
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.overlay-text h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.overlay-text p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.button-link {
+  display: inline-block;
+  padding: 10px 18px;
+  background-color: #ffcc00;
+  color: #002f3d;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.button-link:hover {
+  background-color: #e6b800;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .overlay-text {
+    top: 10%;
+    left: 5%;
+    max-width: 90%;
+    padding: 15px;
+    animation: slideInMobile 1s ease-out forwards;
+  }
+
+  @keyframes slideInMobile {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .overlay-text h2 {
+    font-size: 18px;
+  }
+
+  .overlay-text p {
+    font-size: 14px;
+  }
+
+  .button-link {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+}
+
+/* Welcome Section */
+.welcome-section {
+  width: 100%;
+  height: 70vh; 
+  background-image: url('images/student\ 6.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Overlay with center alignment */
+.overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Welcome Text */
+.welcome-text {
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  max-width: 90%;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideInText 1.5s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+/* Animation */
+@keyframes slideInText {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .welcome-section {
+    height: 50vh; 
+  }
+
+  .welcome-text {
+    font-size: 24px;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+.grid-container{
+  display: flex;
+  flex: 1 1 auto;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 20px;
+  padding: 20px;
+  
+}
+.large-box {
+  grid-column: 1 / span 3;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  background-color: rgb(57, 228, 228); 
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid black;
+}
+
+.large-box:hover {
+  transform: translateY(-5px);
+}
+
+.boxblog-box {
+  grid-column: 1 / span 3;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  background-color: rgb(228, 233, 232);
+  color: rgb(57, 228, 228); 
+  padding: 20px;
+  border-radius: 20px;
+  border-left: 4px solid rgb(57, 228, 228); 
+}
+
+.boxblog-box:hover {
+  transform: translateY(-5px);
+}
+
+.button-link {
+  background-color: #000;
+  color: rgb(57, 228, 228); 
+  display: inline-block;
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+  height: 20px;
+  text-decoration: none;
+}
+
+.button-link:hover {
+  transform: scale(1.05);
+  background-color: white;
+  color: rgb(57, 228, 228); 
+}
+
+.button-link-top {
+  background-color: #000;
+  color: rgb(57, 228, 228); 
+  display: inline-block;
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+  height: 20px;
+  text-decoration: none;
+}
+
+.button-link-top:hover {
+  transform: scale(1.05);
+  background-color: rgb(57, 228, 228); 
+  color: #000;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+  .grid-container {
+    display: flex;
+    flex-direction: column; /* Stacks items vertically on mobile */
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .large-box,
+  .boxblog-box {
+    width: 100%; /* Make sure each box takes the full width */
+    box-sizing: border-box; /* Ensures padding doesn't overflow the box */
+  }
+
+  .button-link, 
+  .button-link-top {
+    padding: 10px;
+    font-size: 14px;
+    height: auto;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+/* Styling the section */
+.student-2 {
+  padding: 40px 0;
+  background-color: #ffffff;
+}
+
+/* Centering the content */
+.student-container {
+  width: 100%;
+  max-width: 1200px; /* Max width to prevent stretching */
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Styling the student card */
+.student-item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Styling the image */
+.img-student1 {
+  width: 40%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Styling the content area */
+.content-student {
+  width: 55%;
+  padding: 20px;
+}
+
+/* Styling the list */
+.content-student ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.content-student li {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #555;
+  margin: 10px 0;
+}
+/* Hover effect on the item */
+.student-item:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px);
+}
+
+/* Hover effect on list items */
+.content-student li:hover {
+  color: #007bff;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .student-item {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .img-student1 {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+  }
+
+  .content-student {
+      width: 100%;
+      padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-student li {
+      font-size: 16px;
+  }
+}
+.img-student1 {
+  width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.content-student {
+  max-width: 400px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: white;
+}
+.student1-item {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+}
+.images-student {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  flex-wrap: wrap;
+  flex: 1 1 100%;
+}
+
+.image-text {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.5); 
+  padding: 10px 15px;
+  border-radius: 8px;
+  max-width: 90%;
+  flex-wrap: wrap;
+}
+/* section footer */
+.site-footer {
+  background-color:  black;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer-about,
+.footer-links,
+.footer-contact {
+  flex: 1 1 250px;
+}
+
+.footer-about h3,
+.footer-links h4,
+.footer-contact h4 {
+  color: #0d9ba5;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.footer-about p,
+.footer-contact p,
+.footer-links ul {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin: 8px 0;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #0d9ba5;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #000;
+}
+
+.footer-contact a {
+  color: #0d9ba5;
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  color: #000;
+}
+
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: #0d9ba5;
+  font-size: 20px;
+  margin-right: 15px;
+  display: inline-block;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #000;
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  margin-top: 30px;
+  border-top: 1px solid #ccc;
+  font-size: 14px;
+  color: #555;
+}
+
+/* part all */
+.student-section {
+  padding: 50px 20px;
+  background-color: #f8f9fa;
+  margin-top: 40px; 
+  margin-bottom: 40px; 
+}
+
+/* card all */
+.student-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: auto;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 20px;
+}
+/* text in image */
+.student-image {
+  position: relative;
+  width: 350px;
+  height: 250px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 20px;
+  margin-bottom: 20px; 
+}
+
+.student-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* text in image */
+.caption {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  background: rgba(240, 248, 248, 0.55);
+  color:  rgb(57, 228, 228);
+  text-align: center;
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.caption:hover {
+  background:  rgb(57, 228, 228);
+  color: #fff;
+}
+
+.student-text {
+  flex: 1;
+  padding: 20px;
+  text-align: left;
+  background-color:  rgb(176, 235, 235);
+  border-radius: 8px;
+}
+
+.student-text h2 {
+  color: black;
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+}
+
+.student-text p {
+  color: #333;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* رسپانسیو */
+@media (max-width: 768px) {
+  .student-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .student-image {
+    width: 90%;
+    height: 200px;
+  }
+
+  .student-text {
+    padding: 15px;
+  }
+
+  .student-text h2 {
+    font-size: 1.3rem;
+  }
+
+  .student-text p {
+    font-size: 0.95rem;
+  }
+
+  .caption {
+    font-size: 0.9rem;
+  }
+}
