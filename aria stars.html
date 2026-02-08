@@ -1,85 +1,300 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Afghan Aria Private School</title>
-    <link rel="stylesheet" href="aria stars.css">
-     <!-- Favicon -->
-     <link rel="icon" href="images/logo.png" type="image/png">
-     <!-- Favicon برای مرورگرهای قدیمی -->
-     <link rel="icon" href="images/logo.png" type="image/x-icon">
-     <!-- برای Apple Devices -->
-     <link rel="apple-touch-icon" href="images/logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Afghan Aria Online School</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #40d0d0, #2aa6a6);
+      color: white;
+      padding: 80px 20px 60px;
+      text-align: center;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    }
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    header h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+    header p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Section Titles */
+    .section-title {
+      text-align: center;
+      color: #40d0d0;
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 50px;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background-color: #40d0d0;
+      display: block;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    /* Feature Cards */
+    .feature-card {
+      background-color: white;
+      padding: 25px 15px; /* کمی جمع و جورتر */
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 35px rgba(0,0,0,0.15);
+    }
+    .feature-card i {
+      font-size: 2.5rem; /* کمی کوچک‌تر */
+      color: #40d0d0;
+      margin-bottom: 12px;
+    }
+    .feature-card h3 {
+      color: #333;
+      margin-bottom: 8px;
+      font-size: 1.1rem; /* کمی کوچک‌تر */
+    }
+    .feature-card p {
+      color: #555;
+      flex-grow: 1;
+      font-size: 0.95rem; /* کوچک‌تر */
+      line-height: 1.5;
+    }
+
+    /* Diploma Section */
+    .diploma-section img {
+      max-height: 350px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+    .diploma-section h2 {
+      color: #40d0d0;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+    .diploma-section p {
+      font-size: 1.05rem;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    /* Call-to-Action */
+    .cta-section {
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #40d0d0, #2aa6a6);
+      color: white;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .cta-section p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      line-height: 1.7;
+    }
+    .cta-btn {
+      display: inline-block;
+      background-color: #ffffff;
+      color: #40d0d0;
+      font-weight: 700;
+      padding: 15px 45px;
+      font-size: 1.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .cta-btn:hover {
+      background-color: #f0f0f0;
+      color: #2aa6a6;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 60px;
+    }
+    footer p {
+      margin-bottom: 5px;
+    }
+    footer small {
+      color: #aaa;
+    }
+
+    /* Responsive adjustments */
+    @media(max-width:768px){
+      header h1 { font-size: 2.2rem; }
+      header h2 { font-size: 1.2rem; }
+      .cta-section h2 { font-size: 2rem; }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Header section -->
-    <header>
-        <div class="logo">
-            <h1>Afghan Aria Private School</h1>
-        </div>
-        <nav>
-            <ul class="nav-list">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about us.html">About Us</a></li>
-                <li><a href="academic services.html">Academic Services</a></li>
-                <li><a href="aria stars.html">Aria Stars</a></li>
-                <li><a href="curriculum.html">Curriculum</a></li>
-                <li><a href="our classes.html">Our Classes</a></li>
-                <li><a href="registration.html">Registration</a></li>
-            </ul>
-        </nav>
-    </header>
-     <!-- Cards Section -->
-     <div class="team-container">
-        <div class="team-card">
-            <img src="images/top student 1.jpg" alt="Mohammad Amiri" class="profile-img">
-            <h3 class="name">Sayyed Haroon Rahimi</h3>
-            <p class="role">Top Student Class-1</p>
-            <a href="https://whatsapp.com/channel/0029VaTF3yQKLaHq3WipGN3r" target="_blank" class="whatsapp-icon">Contact</a>
-            <button class="profile-button">View Profile</button>
-        </div>
-        <div class="team-card">
-            <img src="images/top student 2.jpg" alt="Aria Habibi" class="profile-img">
-            <h3 class="name">Hamidullah Osmani</h3>
-            <p class="role">Top Student Class-2</p>
-            <a href="https://whatsapp.com/channel/0029VaTF3yQKLaHq3WipGN3r" target="_blank" class="whatsapp-icon">Contact</a>
-            <button class="profile-button">View Profile</button>
-        </div>
-        <div class="team-card">
-            <img src="images/top student 4.jpg" alt="Sanam Mohammadi" class="profile-img">
-            <h3 class="name">Somayeh Hakimi</h3>
-            <p class="role">Top Student Class-3</p>
-            <a href="https://whatsapp.com/channel/0029VaTF3yQKLaHq3WipGN3r" target="_blank" class="whatsapp-icon">Contact</a>
-            <button class="profile-button">View Profile</button>
-        </div>
-        <div class="team-card">
-            <img src="images/top student 5.jpg" alt="Ehsan Sadaat" class="profile-img">
-            <h3 class="name">Masihullah Abdullah</h3>
-            <p class="role">Top Student Class-4</p>
-            <a href="https://whatsapp.com/channel/0029VaTF3yQKLaHq3WipGN3r" target="_blank" class="whatsapp-icon">Contact</a>
-            <button class="profile-button">View Profile</button>
-        </div>
-        <div class="team-card">
-            <img src="images/top student 6.jpg" alt="Murtaza Shokori" class="profile-img">
-            <h3 class="name">Morteza Hamid</h3>
-            <p class="role">Top Student Class-5</p>
-            <a href="https://whatsapp.com/channel/0029VaTF3yQKLaHq3WipGN3r" target="_blank" class="whatsapp-icon">Contact</a>
-            <button class="profile-button">View Profile</button>
-        </div>
-        <div class="team-card">
-            <img src="images/top student 7.jpg" alt="Habib Akbari" class="profile-img">
-            <h3 class="name">Shehzad Abdullah</h3>
-            <p class="role">Top Student Class-6</p>
-            <a href="https://whatsapp.com/channel/0029VaTF3yQKLaHq3WipGN3r" target="_blank" class="whatsapp-icon">Contact</a>
-            <button class="profile-button">View Profile</button>
-        </div>
-    </div>
+  <!-- Header -->
+  <header>
+    <h1>Afghan Aria Private School</h1>
+    <h2>Six-Month Online Learning Program per Grade</h2>
+    <p>Learn from professional instructors anywhere in the world. Each grade is completed in six months with interactive online classes.</p>
+  </header>
 
-    <!-- Footer -->
-    <div class="footer-bottom">
-        <p>&copy; 2025 Afghan Aria School. All rights reserved.</p>
+  <!-- About Online School -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">About Our Online School</h2>
+      <p class="text-center fs-5">
+        Afghan Aria Online School offers a comprehensive six-month program for each grade. 
+        All classes are live, interactive, and accessible online. 
+        Get guidance from expert instructors while learning comfortably from home.
+      </p>
     </div>
+  </section>
+
+  <!-- Features -->
+  <section class="bg-light">
+    <div class="container">
+      <h2 class="section-title">Key Features</h2>
+      <div class="row g-4">
+
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="feature-card flex-fill">
+            <i class="bi bi-people-fill"></i>
+            <h3>Interactive Classes</h3>
+            <p>Engage in live sessions with instructors and classmates directly.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="feature-card flex-fill">
+            <i class="bi bi-clock-fill"></i>
+            <h3>24/7 Access</h3>
+            <p>All lessons and resources are available anytime, anywhere.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="feature-card flex-fill">
+            <i class="bi bi-award-fill"></i>
+            <h3>Official Certificate</h3>
+            <p>Receive an officially recognized certificate under the Ministry of Education (ریاست معارف) after completing each six-month grade program.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="feature-card flex-fill">
+            <i class="bi bi-headset"></i>
+            <h3>Professional Support</h3>
+            <p>Our team is ready to assist you with any questions or guidance.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Diploma & School Info Section -->
+  <section class="diploma-section" style="padding: 80px 20px; background-color: #ffffff;">
+    <div class="container">
+      <div class="row align-items-center g-5">
+
+        <div class="col-md-6 text-center">
+          <img 
+            src="dep.png" 
+            alt="Diploma Afghan Aria School" 
+            class="img-fluid"
+          >
+        </div>
+
+        <div class="col-md-6">
+          <h2>Professional Certification & Online Learning</h2>
+          <p>
+            Afghan Aria Online School provides a six-month program for each grade recognized by the Ministry of Education (ریاست معارف افغانستان).  
+            Our curriculum ensures practical knowledge, critical thinking, and academic excellence.
+          </p>
+          <p>
+            Upon completion, students receive an official certificate, fully digital and verifiable, widely accepted for further studies or professional opportunities.
+          </p>
+          <a 
+            href="mailto:info@afghanaria.com?subject=Online School Registration" 
+            class="btn btn-primary btn-lg mt-3"
+            style="background-color: #40d0d0; border-radius: 50px; padding: 12px 35px; font-weight: 600;"
+          >
+            Register Now
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration Call-to-Action -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Register for Online School</h2>
+      <p>
+        To enroll in our six-month online program for your grade, please send an email to our registration team. 
+        Our team will guide you through the enrollment process and answer all your questions.
+      </p>
+      <a href="mailto:info@afghanaria.com?subject=Online School Registration" class="cta-btn" target="_blank">
+        Email to Register
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Afghan Aria Private School | All rights reserved</p>
+    <small>Address: Karte Khurasan, Mazar-i-Sharif | Under supervision of Ministry of Education</small>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
