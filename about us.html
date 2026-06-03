@@ -2,79 +2,552 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Afghan Aria Private School</title>
-    <link rel="stylesheet" href="about us.css">
-     <!-- Favicon -->
-     <link rel="icon" href="images/logo.png" type="image/png">
-     <!-- Favicon برای مرورگرهای قدیمی -->
-     <link rel="icon" href="images/logo.png" type="image/x-icon">
-     <!-- برای Apple Devices -->
-     <link rel="apple-touch-icon" href="images/logo.png">
-     </head>
-<body style="font-family: 'Abril Fatface', serif;">
-     <!-- <header section> -->
-        <header>
-            <div class="logo">
-                <h1 class="logo">Afghan Aria Private School</h1>
-            </div>
-            <nav>
-                <ul class="nav-list">
-                  <li><a href="index.html">Home </a></li>
-                    <li><a href="about us.html">About Us</a></li>
-                    <li><a href="academic services.html">Academic Services</a></li>
-                     <li><a href="aria stars.html">Online School</a></li>
-                    <li><a href="curriculum.html">Curriculum</a></li>
-                    <li><a href="our classes.html">Our Classes</a></li>
-                    <li><a href="registration.html">Registration</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <section class="hero">
-                <h1>About Afghan Aria School</h1>
-              </section>
-            
-              <div class="container">
-                <div class="section">
-                  <h2>Our Mission</h2>
-                  <p>
-                    To nurture a knowledgeable, committed, and capable generation through quality, value-based education tailored to the needs of society.
-                  </p>
-                </div>
-            
-                <div class="section">
-                  <h2>Our Vision</h2>
-                  <p>
-                    To become one of the leading private schools in Afghanistan and serve as a national model for educational excellence.
-                  </p>
-                </div>
-            
-                <div class="section">
-                  <h2>Our Values</h2>
-                  <div class="values">
-                    <div class="value-box">Respect</div>
-                    <div class="value-box">Integrity</div>
-                    <div class="value-box">Responsibility</div>
-                    <div class="value-box">Innovation</div>
-                    <div class="value-box">Equal Opportunity</div>
-                  </div>
-                </div>
-              </div>
-    <!-- Copyright -->
-                <div class="footer-bottom">
-                <p>&copy; 2025 Afghan Aria School. All rights reserved.</p>
-            </div>
-        </footer>
-    <!-- Footer End -->
-    <script>
-      const menuToggle = document.getElementById('menu-toggle');
-      const navbar = document.getElementById('navbar');
-    
-      menuToggle.addEventListener('click', () => {
-        navbar.classList.toggle('active');
-      });
-    </script>
-    </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Afghan Aria Private School - About Us</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    </html>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f0f4f8;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
+        /* ========== COLOR VARIABLES ========== */
+        :root {
+            --primary: #009cab;
+            --primary-dark: #007a87;
+            --primary-light: #4fcbd8;
+            --yellow: #fff719;
+            --yellow-dark: #e6da00;
+            --dark: #0f172a;
+            --light: #f8fafc;
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            background: var(--primary);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0 5%;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 1rem;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.3px;
+            white-space: nowrap;
+        }
+
+        .nav-list {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            list-style: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-list li a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: white;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-list li a i {
+            font-size: 0.85rem;
+            width: 1.1rem;
+            color: white;
+            transition: 0.2s;
+        }
+
+        .nav-list li a:hover {
+            color: var(--yellow);
+            text-decoration: underline;
+        }
+
+        .nav-list li a:hover i {
+            color: var(--yellow);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+        }
+
+        @media screen and (max-width: 1050px) {
+            .nav-list { gap: 0.8rem; }
+            .nav-list li a { font-size: 0.75rem; }
+            .logo h1 { font-size: 1.3rem; }
+        }
+
+        @media screen and (max-width: 900px) {
+            .hamburger { display: block; }
+            .nav-list {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 75%;
+                height: calc(100vh - 70px);
+                background: var(--primary);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                padding: 2rem 2rem;
+                gap: 1.2rem;
+                box-shadow: 2px 0 25px rgba(0,0,0,0.2);
+                transition: left 0.3s ease-in-out;
+                z-index: 999;
+            }
+            .nav-list.active { left: 0; }
+            .nav-list li a { font-size: 1rem; padding: 0.3rem 0; color: white; }
+            .nav-list li a i { color: white; font-size: 1.1rem; }
+            .logo h1 { font-size: 1.2rem; }
+        }
+
+        @media screen and (max-width: 480px) {
+            .navbar { gap: 0.5rem; }
+            .logo h1 { font-size: 1rem; white-space: normal; line-height: 1.2; max-width: 200px; }
+            .hamburger { font-size: 1.5rem; }
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero-about {
+            background: linear-gradient(rgba(0, 156, 171, 0.85), rgba(0, 60, 68, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .hero-about h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            animation: slideDown 0.8s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-about p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 700px;
+            margin: 0 auto;
+            animation: slideUp 0.8s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== ABOUT CONTENT ========== */
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .mission-vision {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .mission-card, .vision-card {
+            flex: 1;
+            background: white;
+            border-radius: 30px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-bottom: 5px solid var(--primary);
+        }
+
+        .mission-card:hover, .vision-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,156,171,0.15);
+        }
+
+        .mission-card i, .vision-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .mission-card h2, .vision-card h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .mission-card p, .vision-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Values Section */
+        .values-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .values-section h2 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .values-section h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        .values-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .value-item {
+            background: linear-gradient(135deg, #009cab, #4fcbd8);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,156,171,0.3);
+            border: none;
+            display: inline-block;
+        }
+
+        .value-item:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: linear-gradient(135deg, #007a87, #009cab);
+            box-shadow: 0 10px 25px rgba(0,156,171,0.4);
+        }
+
+        .value-item.active {
+            background: linear-gradient(135deg, #007a87, #005f68);
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Value Description Box */
+        .value-description {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 1.5rem;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .value-description h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .value-description p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .value-description i {
+            font-size: 2rem;
+            color: var(--yellow-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Stats Section */
+        .about-stats {
+            background: linear-gradient(120deg, #009cab, #003d44);
+            padding: 4rem 5%;
+            margin-top: 3rem;
+        }
+
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--yellow);
+        }
+
+        .stat-label {
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        /* ========== FOOTER ========== */
+        .simple-footer {
+            background: #0a0a0a;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 0;
+        }
+
+        .simple-footer p {
+            color: #777;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-about h1 { font-size: 2rem; }
+            .mission-card h2, .vision-card h2 { font-size: 1.4rem; }
+            .value-item { padding: 0.7rem 1.5rem; font-size: 0.9rem; }
+            .value-description h3 { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <h1>Afghan Aria Private School</h1>
+        </div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+            <ul class="nav-list" id="navList">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about us.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="academic services.html"><i class="fas fa-book-open"></i> Academic Services</a></li>
+                <li><a href="aria stars.html"><i class="fas fa-laptop-code"></i> Online School</a></li>
+                <li><a href="curriculum.html"><i class="fas fa-graduation-cap"></i> Curriculum</a></li>
+                <li><a href="our classes.html"><i class="fas fa-chalkboard-user"></i> Our Classes</a></li>
+                <li><a href="registration.html"><i class="fas fa-edit"></i> Registration</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero-about">
+    <h1>About Afghan Aria School</h1>
+    <p>Discover our story, mission, and the values that drive us to provide exceptional education.</p>
+</section>
+
+<!-- MISSION & VISION -->
+<div class="about-container">
+    <div class="mission-vision">
+        <div class="mission-card" data-aos="fade-right">
+            <i class="fas fa-bullseye"></i>
+            <h2>Our Mission</h2>
+            <p>To nurture a knowledgeable, committed, and capable generation through quality, value-based education tailored to the needs of society.</p>
+        </div>
+        <div class="vision-card" data-aos="fade-left">
+            <i class="fas fa-eye"></i>
+            <h2>Our Vision</h2>
+            <p>To become one of the leading private schools in Afghanistan and serve as a national model for educational excellence.</p>
+        </div>
+    </div>
+
+    <!-- VALUES SECTION با نمایش توضیحات در پایین -->
+    <div class="values-section" data-aos="zoom-in">
+        <h2>Our Core Values</h2>
+        <div class="values-grid">
+            <div class="value-item" onclick="showValueDescription('Respect')">Respect</div>
+            <div class="value-item" onclick="showValueDescription('Integrity')">Integrity</div>
+            <div class="value-item" onclick="showValueDescription('Responsibility')">Responsibility</div>
+            <div class="value-item" onclick="showValueDescription('Innovation')">Innovation</div>
+            <div class="value-item" onclick="showValueDescription('Equal Opportunity')">Equal Opportunity</div>
+        </div>
+        
+        <!-- محل نمایش توضیحات -->
+        <div id="valueDescription" class="value-description">
+            <i class="fas fa-hand-peace"></i>
+            <h3>Click on any value</h3>
+            <p>Select one of our core values above to learn more about what it means at Afghan Aria School.</p>
+        </div>
+    </div>
+</div>
+
+<!-- STATS SECTION -->
+<section class="about-stats">
+    <div class="stats-container">
+        <div class="stat-item" data-aos="zoom-in"><div class="stat-number">2015</div><div class="stat-label">Founded</div></div>
+        <div class="stat-item" data-aos="zoom-in" data-aos-delay="100"><div class="stat-number">500+</div><div class="stat-label">Students</div></div>
+        <div class="stat-item" data-aos="zoom-in" data-aos-delay="200"><div class="stat-number">40+</div><div class="stat-label">Teachers</div></div>
+        <div class="stat-item" data-aos="zoom-in" data-aos-delay="300"><div class="stat-number">98%</div><div class="stat-label">Parent Satisfaction</div></div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="simple-footer">
+    <p>&copy; 2025 Afghan Aria School | Made By Marjan Habibi, All rights reserved.</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true });
+    
+    // Function to show value description below
+    function showValueDescription(valueName) {
+        const descriptions = {
+            'Respect': {
+                title: '🤝 Respect',
+                text: 'We treat everyone with dignity, kindness, and consideration. Respect is the foundation of our school community, where students, teachers, and staff value each other\'s opinions and backgrounds.'
+            },
+            'Integrity': {
+                title: '⭐ Integrity',
+                text: 'We act with honesty, transparency, and strong moral principles in everything we do. Our students learn the importance of truthfulness and ethical behavior both inside and outside the classroom.'
+            },
+            'Responsibility': {
+                title: '📚 Responsibility',
+                text: 'We take ownership of our actions and commitments, striving to be accountable students and citizens. Every member of our school community understands their role in creating a positive environment.'
+            },
+            'Innovation': {
+                title: '💡 Innovation',
+                text: 'We embrace creativity, new ideas, and modern teaching methods to prepare for the future. Our curriculum encourages critical thinking, problem-solving, and adapting to change.'
+            },
+            'Equal Opportunity': {
+                title: '🌍 Equal Opportunity',
+                text: 'We believe every student deserves access to quality education regardless of background, gender, or ability. Afghan Aria School provides an inclusive environment where everyone can thrive and succeed.'
+            }
+        };
+        
+        const value = descriptions[valueName];
+        if (value) {
+            document.getElementById('valueDescription').innerHTML = `
+                <i class="fas ${getIconForValue(valueName)}"></i>
+                <h3>${value.title}</h3>
+                <p>${value.text}</p>
+            `;
+        }
+        
+        // Highlight active button
+        document.querySelectorAll('.value-item').forEach(btn => {
+            btn.classList.remove('active');
+            if(btn.innerText === valueName) {
+                btn.classList.add('active');
+            }
+        });
+    }
+    
+    function getIconForValue(valueName) {
+        const icons = {
+            'Respect': 'fa-hand-peace',
+            'Integrity': 'fa-star',
+            'Responsibility': 'fa-book',
+            'Innovation': 'fa-lightbulb',
+            'Equal Opportunity': 'fa-globe'
+        };
+        return icons[valueName] || 'fa-heart';
+    }
+    
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navList = document.getElementById('navList');
+    if (hamburgerBtn && navList) {
+        hamburgerBtn.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            const icon = hamburgerBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        navList.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+                const icon = hamburgerBtn.querySelector('i');
+                if(icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
+    }
+    
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 900) {
+            if (navList.classList.contains('active')) {
+                navList.classList.remove('active');
+                const icon = hamburgerBtn.querySelector('i');
+                if(icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
