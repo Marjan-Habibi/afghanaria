@@ -1,105 +1,519 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Afghan Aria Private School</title>
-  <link rel="stylesheet" href="academic services.css">
-   <!-- Favicon -->
-   <link rel="icon" href="images/logo.png" type="image/png">
-   <!-- Favicon برای مرورگرهای قدیمی -->
-   <link rel="icon" href="images/logo.png" type="image/x-icon">
-   <!-- برای Apple Devices -->
-   <link rel="apple-touch-icon" href="images/logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Afghan Aria Private School - Academic Services</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f0f4f8;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
+        /* ========== COLOR VARIABLES ========== */
+        :root {
+            --primary: #009cab;
+            --primary-dark: #007a87;
+            --primary-light: #4fcbd8;
+            --yellow: #fff719;
+            --yellow-dark: #e6da00;
+            --dark: #0f172a;
+            --light: #f8fafc;
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            background: var(--primary);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0 5%;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 1rem;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.3px;
+            white-space: nowrap;
+        }
+
+        .nav-list {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            list-style: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-list li a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: white;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-list li a i {
+            font-size: 0.85rem;
+            width: 1.1rem;
+            color: white;
+            transition: 0.2s;
+        }
+
+        .nav-list li a:hover {
+            color: var(--yellow);
+            text-decoration: underline;
+        }
+
+        .nav-list li a:hover i {
+            color: var(--yellow);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+        }
+
+        @media screen and (max-width: 1050px) {
+            .nav-list { gap: 0.8rem; }
+            .nav-list li a { font-size: 0.75rem; }
+            .logo h1 { font-size: 1.3rem; }
+        }
+
+        @media screen and (max-width: 900px) {
+            .hamburger { display: block; }
+            .nav-list {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 75%;
+                height: calc(100vh - 70px);
+                background: var(--primary);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                padding: 2rem 2rem;
+                gap: 1.2rem;
+                box-shadow: 2px 0 25px rgba(0,0,0,0.2);
+                transition: left 0.3s ease-in-out;
+                z-index: 999;
+            }
+            .nav-list.active { left: 0; }
+            .nav-list li a { font-size: 1rem; padding: 0.3rem 0; color: white; }
+            .nav-list li a i { color: white; font-size: 1.1rem; }
+            .logo h1 { font-size: 1.2rem; }
+        }
+
+        @media screen and (max-width: 480px) {
+            .navbar { gap: 0.5rem; }
+            .logo h1 { font-size: 1rem; white-space: normal; line-height: 1.2; max-width: 200px; }
+            .hamburger { font-size: 1.5rem; }
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero-services {
+            background: linear-gradient(rgba(0, 156, 171, 0.85), rgba(0, 60, 68, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .hero-services h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            animation: slideDown 0.8s ease;
+        }
+
+        .hero-services p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 700px;
+            margin: 0 auto;
+            animation: slideUp 0.8s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== SERVICES SECTION ========== */
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .section-badge {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-badge span {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .section-badge h2 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            margin-top: 1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,156,171,0.2);
+        }
+
+        .service-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+
+        .service-card:hover .service-img {
+            transform: scale(1.05);
+        }
+
+        .service-content {
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        /* آیکن دایره‌ای - با فاصله از عکس */
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #009cab, #4fcbd8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -45px auto 1rem auto;
+            box-shadow: 0 8px 20px rgba(0,156,171,0.4);
+            position: relative;
+            z-index: 10;
+            border: 3px solid white;
+        }
+
+        .service-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .service-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .service-description {
+            color: #555;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ========== FOOTER ========== */
+        .simple-footer {
+            background: #0a0a0a;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 0;
+        }
+
+        .simple-footer p {
+            color: #777;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-services h1 { font-size: 2rem; }
+            .section-badge h2 { font-size: 1.6rem; }
+            .service-img { height: 180px; }
+            .service-icon {
+                width: 55px;
+                height: 55px;
+                margin-top: -35px;
+            }
+            .service-icon i {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- !-- <header section> -->
-        <header>
-            <div class="logo">
-                <h1 class="logo">Afghan Aria Private School</h1>
-            </div>
-            <nav>
-                <ul class="nav-list">
-                  <li><a href="index.html">Home </a></li>
-                    <li><a href="about us.html">About Us</a></li>
-                    <li><a href="academic services.html">Academic Services</a></li>
-                     <li><a href="aria stars.html">Online School</a></li>
-                    <li><a href="curriculum.html">Curriculum</a></li>
-                    <li><a href="our classes.html">Our Classes</a></li>
-                    <li><a href="registration.html">Registration</a></li>
-                </ul>
-            </nav>
-        </header>
-        <section class="school-services">
-            <div class="container">
-                <!-- Section Title -->
-                <h1 class="section-title">School Services</h1>
-                <p class="section-description">
-                    Afghan Aria School offers a variety of educational, sports, and extracurricular services that foster the overall growth of students.
-                </p>
-        
-                <!-- School Services -->
-                <div class="services-grid">
-                    <!-- Service 1: Computer Skills -->
-                    <div class="service-card">
-                        <img src="images/student 18.jpg" alt="Computer Skills" class="service-img">
-                        <h3 class="service-title">Computer Skills</h3>
-                        <p class="service-description">
-                            Students are introduced to basic and advanced computer skills through hands-on learning.
-                        </p>
-                    </div>
-        
-                    <!-- Service 2: Football -->
-                    <div class="service-card">
-                        <img src="images/student 12.jpg" alt="Football" class="service-img">
-                        <h3 class="service-title">Football</h3>
-                        <p class="service-description">
-                            Our football program focuses on both individual skills and teamwork, promoting health and fitness.
-                        </p>
-                    </div>
-        
-                    <!-- Service 3: Educational Gatherings -->
-                    <div class="service-card">
-                        <img src="images/student 17.jpg" alt="Educational Gatherings" class="service-img">
-                        <h3 class="service-title">Educational Gatherings</h3>
-                        <p class="service-description">
-                            In these gatherings, students engage with a variety of educational topics and have the chance to interact with peers and mentors.
-                        </p>
-                    </div>
-        
-                    <!-- Service 4: Arts Programs -->
-                    <div class="service-card">
-                        <img src="images/student 11.jpg" alt="Monthly Science Check-Up" class="service-img">
-                        <h3 class="service-title">Monthly Science Check-Up</h3>
-                        <p class="service-description">
-                Every month, students participate in science-based assessments and hands-on experiments to evaluate their understanding and enhance critical thinking. This ongoing check-up helps reinforce classroom learning and nurtures a love for discovery.
-            </p>
-        </div>
-        
-                    <!-- Service 5: Monthly Science Check-Up -->
-                    <div class="service-card">
-                        <img src="images/student 22.jpg" alt="Arts Programs" class="service-img">
-                        <h3 class="service-title">Arts Programs</h3>
-                        <p class="service-description">
-                            Our arts programs include painting, music, and theater to foster students' creativity and self-expression.
-                        </p>
-                    </div>
-                    <!-- Service 6: Foreign Language Classes -->
-                    <div class="service-card">
-                        <img src="images/student 21.jpg" alt="Foreign Language Classes" class="service-img">
-                        <h3 class="service-title">Foreign Language Classes</h3>
-                        <p class="service-description">
-                            Students have the opportunity to learn various foreign languages and expand their global communication skills.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- Copyright -->
-          <div class="footer-bottom">
-            <p>&copy; 2025 Afghan Aria School. All rights reserved.</p>
-          </div>
-        </footer>
-        <!-- Footer End -->
-        
 
-        </section>
+<!-- HEADER -->
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <h1>Afghan Aria Private School</h1>
+        </div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+            <ul class="nav-list" id="navList">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about us.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="academic services.html"><i class="fas fa-book-open"></i> Academic Services</a></li>
+                <li><a href="aria stars.html"><i class="fas fa-laptop-code"></i> Online School</a></li>
+                <li><a href="curriculum.html"><i class="fas fa-graduation-cap"></i> Curriculum</a></li>
+                <li><a href="our classes.html"><i class="fas fa-chalkboard-user"></i> Our Classes</a></li>
+                <li><a href="registration.html"><i class="fas fa-edit"></i> Registration</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero-services">
+    <h1>Our Academic Services</h1>
+    <p>Afghan Aria School offers a variety of educational, sports, and extracurricular services that foster the overall growth of students.</p>
+</section>
+
+<!-- SERVICES SECTION -->
+<div class="services-container">
+    <div class="section-badge" data-aos="fade-up">
+        <span>📚 What We Offer</span>
+        <h2>School Services</h2>
+    </div>
+
+    <div class="services-grid">
+        <!-- 1. Computer Skills -->
+        <div class="service-card" data-aos="flip-left">
+            <img src="images/student 18.jpg" alt="Computer Skills" class="service-img">
+            <div class="service-content">
+                <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                <h3 class="service-title">Computer Skills</h3>
+                <p class="service-description">Students are introduced to basic and advanced computer skills through hands-on learning.</p>
+            </div>
+        </div>
+
+        <!-- 2. Football -->
+        <div class="service-card" data-aos="flip-left" data-aos-delay="100">
+            <img src="images/student 12.jpg" alt="Football" class="service-img">
+            <div class="service-content">
+                <div class="service-icon"><i class="fas fa-futbol"></i></div>
+                <h3 class="service-title">Football</h3>
+                <p class="service-description">Our football program focuses on both individual skills and teamwork, promoting health and fitness.</p>
+            </div>
+        </div>
+
+        <!-- 3. Educational Gatherings -->
+        <div class="service-card" data-aos="flip-left" data-aos-delay="200">
+            <img src="images/student 17.jpg" alt="Educational Gatherings" class="service-img">
+            <div class="service-content">
+                <div class="service-icon"><i class="fas fa-users"></i></div>
+                <h3 class="service-title">Educational Gatherings</h3>
+                <p class="service-description">Students engage with various educational topics and have the chance to interact with peers and mentors.</p>
+            </div>
+        </div>
+
+        <!-- 4. Monthly Science Check-Up -->
+        <div class="service-card" data-aos="flip-left" data-aos-delay="300">
+            <img src="imges/doctor-arai.jpg" alt="Monthly Science Check-Up" class="service-img" onerror="this.src='https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
+            <div class="service-content">
+                <div class="service-icon"><i class="fas fa-flask"></i></div>
+                <h3 class="service-title">Monthly Science Check-Up</h3>
+                <p class="service-description">Students participate in science-based assessments and hands-on experiments to enhance critical thinking.</p>
+            </div>
+        </div>
+
+        <!-- 5. Arts Programs -->
+        <div class="service-card" data-aos="flip-left" data-aos-delay="400">
+            <img src="images/student 22.jpg" alt="Arts Programs" class="service-img">
+            <div class="service-content">
+                <div class="service-icon"><i class="fas fa-palette"></i></div>
+                <h3 class="service-title">Arts Programs</h3>
+                <p class="service-description">Our arts programs include painting, music, and theater to foster students' creativity and self-expression.</p>
+            </div>
+        </div>
+
+        <!-- 6. Foreign Language Classes -->
+        <div class="service-card" data-aos="flip-left" data-aos-delay="500">
+            <img src="images/student 21.jpg" alt="Foreign Language Classes" class="service-img">
+            <div class="service-content">
+                <div class="service-icon"><i class="fas fa-language"></i></div>
+                <h3 class="service-title">Foreign Language Classes</h3>
+                <p class="service-description">Students learn various foreign languages and expand their global communication skills.</p>
+            </div>
+        </div>
+
+        <!-- 7. Science Laboratory -->
+        <div class="service-card" data-aos="flip-left" data-aos-delay="600">
+            <img src="imges/s-aria.jpg" alt="Science Laboratory" class="service-img" onerror="this.src='https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
+            <div class="service-content">
+                <div class="service-icon"><i class="fas fa-microscope"></i></div>
+                <h3 class="service-title">Science Laboratory</h3>
+                <p class="service-description">Fully equipped modern laboratory for hands-on experiments in physics, chemistry, and biology.</p>
+            </div>
+        </div>
+
+        <!-- 8. Scientific Tours -->
+        <div class="service-card" data-aos="flip-left" data-aos-delay="700">
+            <img src="imges/aria.jpg" alt="Scientific Tours" class="service-img" onerror="this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
+            <div class="service-content">
+                <div class="service-icon"><i class="fas fa-bus"></i></div>
+                <h3 class="service-title">Scientific Tours</h3>
+                <p class="service-description">Educational trips to museums, science centers, and cultural sites to enhance real-world learning.</p>
+            </div>
+        </div>
+
+        <!-- 9. Kids Clubs -->
+        <div class="service-card" data-aos="flip-left" data-aos-delay="800">
+            <img src="imges/kid-day.jpg" alt="Kids Clubs" class="service-img" onerror="this.src='https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
+            <div class="service-content">
+                <div class="service-icon"><i class="fas fa-child"></i></div>
+                <h3 class="service-title">Kids Clubs</h3>
+                <p class="service-description">Fun and educational clubs including robotics, drawing, storytelling, and science clubs for young learners.</p>
+            </div>
+        </div>
+
+        <!-- 10. Parent-Teacher Meetings -->
+        <div class="service-card" data-aos="flip-left" data-aos-delay="900">
+            <img src="imges/parents.jpg" alt="Parent Meetings" class="service-img" onerror="this.src='https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
+            <div class="service-content">
+                <div class="service-icon"><i class="fas fa-handshake"></i></div>
+                <h3 class="service-title">Parent-Teacher Meetings</h3>
+                <p class="service-description">Regular meetings between parents and teachers to track student progress and discuss development strategies.</p>
+            </div>
+        </div>
+
+        <!-- 11. Kangaroo Exam -->
+        <div class="service-card" data-aos="flip-left" data-aos-delay="1000">
+            <img src="imges/exam-aria.jpg" alt="Kangaroo Exam" class="service-img" onerror="this.src='https://images.unsplash.com/photo-1456324504439-367cee3b3c32?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
+            <div class="service-content">
+                <div class="service-icon"><i class="fas fa-trophy"></i></div>
+                <h3 class="service-title">Kangaroo International Exam</h3>
+                <p class="service-description">Participation in the International Kangaroo Math Competition to challenge and inspire young mathematicians.</p>
+            </div>
+        </div>
+
+        <!-- 12. Morning Seminars -->
+        <div class="service-card" data-aos="flip-left" data-aos-delay="1100">
+            <img src="imges/school.jpg" alt="Morning Seminars" class="service-img" onerror="this.src='https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
+            <div class="service-content">
+                <div class="service-icon"><i class="fas fa-sun"></i></div>
+                <h3 class="service-title">Morning Seminars</h3>
+                <p class="service-description">Daily morning assemblies with motivational talks, news sharing, and leadership skill development.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="simple-footer">
+    <p>&copy; 2025 Afghan Aria School | Made By Marjan Habibi, All rights reserved.</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true });
+    
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navList = document.getElementById('navList');
+    if (hamburgerBtn && navList) {
+        hamburgerBtn.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            const icon = hamburgerBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        navList.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+                const icon = hamburgerBtn.querySelector('i');
+                if(icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
+    }
+    
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 900) {
+            if (navList.classList.contains('active')) {
+                navList.classList.remove('active');
+                const icon = hamburgerBtn.querySelector('i');
+                if(icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
