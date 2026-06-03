@@ -2,67 +2,610 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Afghan Aria Private School</title>
-    <link rel="stylesheet" href="our classes.css">
-     <!-- Favicon -->
-     <link rel="icon" href="images/logo.png" type="image/png">
-     <!-- Favicon برای مرورگرهای قدیمی -->
-     <link rel="icon" href="images/logo.png" type="image/x-icon">
-     <!-- برای Apple Devices -->
-     <link rel="apple-touch-icon" href="images/logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Afghan Aria Private School - Our Classes</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f7fc;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
+        /* ========== COLOR VARIABLES ========== */
+        :root {
+            --primary: #009cab;
+            --primary-dark: #007a87;
+            --primary-light: #4fcbd8;
+            --yellow: #fff719;
+            --yellow-dark: #e6da00;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            background: var(--primary);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0 5%;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 1rem;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.3px;
+            white-space: nowrap;
+        }
+
+        .nav-list {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            list-style: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-list li a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: white;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-list li a i {
+            font-size: 0.85rem;
+            width: 1.1rem;
+            color: white;
+            transition: 0.2s;
+        }
+
+        .nav-list li a:hover {
+            color: var(--yellow);
+            text-decoration: underline;
+        }
+
+        .nav-list li a:hover i {
+            color: var(--yellow);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+        }
+
+        @media screen and (max-width: 1050px) {
+            .nav-list { gap: 0.8rem; }
+            .nav-list li a { font-size: 0.75rem; }
+            .logo h1 { font-size: 1.3rem; }
+        }
+
+        @media screen and (max-width: 900px) {
+            .hamburger { display: block; }
+            .nav-list {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 75%;
+                height: calc(100vh - 70px);
+                background: var(--primary);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                padding: 2rem 2rem;
+                gap: 1.2rem;
+                box-shadow: 2px 0 25px rgba(0,0,0,0.2);
+                transition: left 0.3s ease-in-out;
+                z-index: 999;
+            }
+            .nav-list.active { left: 0; }
+            .nav-list li a { font-size: 1rem; padding: 0.3rem 0; color: white; }
+            .nav-list li a i { color: white; font-size: 1.1rem; }
+            .logo h1 { font-size: 1.2rem; }
+        }
+
+        @media screen and (max-width: 480px) {
+            .navbar { gap: 0.5rem; }
+            .logo h1 { font-size: 1rem; white-space: normal; line-height: 1.2; max-width: 200px; }
+            .hamburger { font-size: 1.5rem; }
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero-classes {
+            background: linear-gradient(135deg, #e8f4f5 0%, #d1e8ea 100%);
+            padding: 4rem 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-classes::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0,156,171,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero-classes::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(0,156,171,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -20px); }
+        }
+
+        .hero-classes .badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-classes h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-classes p {
+            color: #5a6a8a;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========== CLASSES SECTION ========== */
+        .classes-section {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .section-header .underline {
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .class-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .class-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 40px rgba(0,156,171,0.15);
+        }
+
+        .class-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+
+        .class-card:hover .class-img {
+            transform: scale(1.03);
+        }
+
+        .class-content {
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .class-icon {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -35px auto 1rem auto;
+            box-shadow: 0 5px 15px rgba(0,156,171,0.3);
+            border: 3px solid white;
+        }
+
+        .class-icon i {
+            font-size: 1.3rem;
+            color: white;
+        }
+
+        .class-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .class-card p {
+            font-size: 0.85rem;
+            color: #6a7a9a;
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
+        }
+
+        .class-btn {
+            display: inline-block;
+            background: transparent;
+            color: var(--primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: 0.3s;
+            border: 2px solid var(--primary);
+        }
+
+        .class-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* ========== FEATURES STRIP ========== */
+        .features-strip {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem 5%;
+            background: white;
+            border-top: 1px solid #eef2f8;
+            border-bottom: 1px solid #eef2f8;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        .feature-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .feature-item span {
+            font-size: 0.8rem;
+            color: #6a7a9a;
+            display: block;
+        }
+
+        /* ========== BANNER SECTION ========== */
+        .banner-section {
+            background: linear-gradient(135deg, #009cab 0%, #004d55 100%);
+            margin: 2rem 5% 4rem;
+            border-radius: 40px;
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-section h3 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .banner-section p {
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 1.5rem;
+        }
+
+        .banner-btn {
+            display: inline-block;
+            background: var(--yellow);
+            color: var(--dark);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .banner-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* ========== FOOTER ========== */
+        .simple-footer {
+            background: #0a0a0a;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .simple-footer p {
+            color: #777;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-classes h1 { font-size: 2rem; }
+            .class-img { height: 160px; }
+            .banner-section h3 { font-size: 1.3rem; }
+            .banner-section { margin: 2rem 3% 3rem; padding: 2rem; }
+        }
+    </style>
 </head>
 <body>
-    <section class="classes-wrapper">
-        <h2 class="classes-title">Our Classes</h2>
-        <div class="classes-section">
-          <div class="class-card">
-            <img src="images/kindergarten.jpg" alt="Class kindergarten">
-            <h3>kindergarten</h3>
-            <button><a href="index.html">View Details</a></button>
-          </div>
-          <div class="class-card">
-            <img src="images/class 1.jpg" alt="Class 1">
-            <h3>Class 1</h3>
-            <button><a href="index.html">View Details</a></button>
-          </div>
-          <div class="class-card">
-            <img src="images/class 2.jpg" alt="Class 2">
-            <h3>Class 2</h3>
-            <button><a href="index.html">View Details</a></button>
-          </div>
-          <div class="class-card">
-            <img src="images/class 3.jpg" alt="Class 3">
-            <h3>Class 3</h3>
-            <button><a href="index.html">View Details</a></button>
-          </div>
-          <div class="class-card">
-            <img src="images/class 4.jpg" alt="Class 4">
-            <h3>Class 4</h3>
-            <button><a href="index.html">View Details</a></button>
-          </div>
-          <div class="class-card">
-            <img src="images/class 5.jpg" alt="Class 5">
-            <h3>Class 5</h3>
-            <button><a href="index.html">View Details</a></button>
-          </div>
-          <div class="class-card">
-            <img src="images/class 6.jpg" alt="Class 6">
-            <h3>Class 6</h3>
-            <button><a href="index.html">View Details</a></button>
-          </div>
-          <div class="class-card">
-            <img src="images/class.jpg" alt="Class ">
-            <h3>Preparatory Class</h3>
-            <button><a href="index.html">View Details</a></button>
-          </div>
+
+<!-- HEADER -->
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <h1>Afghan Aria Private School</h1>
         </div>
-      </section>
-       <!-- Copyright -->
-  <div class="footer-bottom">
-    <p>&copy; 2025 Afghan Aria School. All rights reserved.</p>
-  </div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+            <ul class="nav-list" id="navList">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about us.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="academic services.html"><i class="fas fa-book-open"></i> Academic Services</a></li>
+                <li><a href="aria stars.html"><i class="fas fa-laptop-code"></i> Online School</a></li>
+                <li><a href="curriculum.html"><i class="fas fa-graduation-cap"></i> Curriculum</a></li>
+                <li><a href="our classes.html"><i class="fas fa-chalkboard-user"></i> Our Classes</a></li>
+                <li><a href="registration.html"><i class="fas fa-edit"></i> Registration</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero-classes">
+    <div class="badge">🎓 Since 2015</div>
+    <h1>Our Classes</h1>
+    <p>From Kindergarten to Preparatory Class — every stage is designed to inspire curiosity, creativity, and confidence.</p>
+</section>
+
+<!-- CLASSES GRID -->
+<section class="classes-section">
+    <div class="section-header" data-aos="fade-up">
+        <h2>Academic Levels</h2>
+        <div class="underline"></div>
+    </div>
+
+    <div class="classes-grid">
+        <!-- Kindergarten -->
+        <div class="class-card" data-aos="zoom-in">
+            <img src="images/kindergarten.jpg" alt="Kindergarten" class="class-img">
+            <div class="class-content">
+                <div class="class-icon"><i class="fas fa-child"></i></div>
+                <h3>Kindergarten</h3>
+                <p>Play-based learning & social skills development</p>
+                <a href="registration.html" class="class-btn">View Details →</a>
+            </div>
+        </div>
+
+        <!-- Class 1 -->
+        <div class="class-card" data-aos="zoom-in" data-aos-delay="50">
+            <img src="images/class 1.jpg" alt="Class 1" class="class-img">
+            <div class="class-content">
+                <div class="class-icon"><i class="fas fa-book"></i></div>
+                <h3>Class 1</h3>
+                <p>Foundations of reading, writing & mathematics</p>
+                <a href="registration.html" class="class-btn">View Details →</a>
+            </div>
+        </div>
+
+        <!-- Class 2 -->
+        <div class="class-card" data-aos="zoom-in" data-aos-delay="100">
+            <img src="images/class 2.jpg" alt="Class 2" class="class-img">
+            <div class="class-content">
+                <div class="class-icon"><i class="fas fa-pencil-ruler"></i></div>
+                <h3>Class 2</h3>
+                <p>Building core knowledge & creative thinking</p>
+                <a href="registration.html" class="class-btn">View Details →</a>
+            </div>
+        </div>
+
+        <!-- Class 3 -->
+        <div class="class-card" data-aos="zoom-in" data-aos-delay="150">
+            <img src="images/class 3.jpg" alt="Class 3" class="class-img">
+            <div class="class-content">
+                <div class="class-icon"><i class="fas fa-flask"></i></div>
+                <h3>Class 3</h3>
+                <p>Introduction to science & expanded learning</p>
+                <a href="registration.html" class="class-btn">View Details →</a>
+            </div>
+        </div>
+
+        <!-- Class 4 -->
+        <div class="class-card" data-aos="zoom-in" data-aos-delay="200">
+            <img src="images/class 4.jpg" alt="Class 4" class="class-img">
+            <div class="class-content">
+                <div class="class-icon"><i class="fas fa-brain"></i></div>
+                <h3>Class 4</h3>
+                <p>Critical thinking & problem-solving skills</p>
+                <a href="registration.html" class="class-btn">View Details →</a>
+            </div>
+        </div>
+
+        <!-- Class 5 -->
+        <div class="class-card" data-aos="zoom-in" data-aos-delay="250">
+            <img src="images/class 5.jpg" alt="Class 5" class="class-img">
+            <div class="class-content">
+                <div class="class-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Class 5</h3>
+                <p>Advanced analytical & research skills</p>
+                <a href="registration.html" class="class-btn">View Details →</a>
+            </div>
+        </div>
+
+        <!-- Class 6 -->
+        <div class="class-card" data-aos="zoom-in" data-aos-delay="300">
+            <img src="images/class 6.jpg" alt="Class 6" class="class-img">
+            <div class="class-content">
+                <div class="class-icon"><i class="fas fa-microscope"></i></div>
+                <h3>Class 6</h3>
+                <p>Preparation for higher grades & exams</p>
+                <a href="registration.html" class="class-btn">View Details →</a>
+            </div>
+        </div>
+
+        <!-- Preparatory Class -->
+        <div class="class-card" data-aos="zoom-in" data-aos-delay="350">
+            <img src="images/class.jpg" alt="Preparatory Class" class="class-img">
+            <div class="class-content">
+                <div class="class-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h3>Preparatory Class</h3>
+                <p>Final step to academic excellence</p>
+                <a href="registration.html" class="class-btn">View Details →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES STRIP -->
+<div class="features-strip">
+    <div class="feature-item"><i class="fas fa-chalkboard-user"></i><span>Expert Teachers</span></div>
+    <div class="feature-item"><i class="fas fa-flask"></i><span>Modern Labs</span></div>
+    <div class="feature-item"><i class="fas fa-laptop-code"></i><span>Smart Classes</span></div>
+    <div class="feature-item"><i class="fas fa-futbol"></i><span>Sports Facilities</span></div>
+    <div class="feature-item"><i class="fas fa-bus"></i><span>Transportation</span></div>
+</div>
+
+<!-- BANNER SECTION -->
+<div class="banner-section" data-aos="zoom-in">
+    <h3>Ready to Join Afghan Aria School?</h3>
+    <p>Give your child the gift of quality education in a nurturing environment.</p>
+    <a href="registration.html" class="banner-btn"><i class="fas fa-arrow-right"></i> Register Now</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="simple-footer">
+    <p>&copy; 2025 Afghan Aria School | Made By Marjan Habibi, All rights reserved.</p>
 </footer>
-<!-- Footer End -->
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true });
+    
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navList = document.getElementById('navList');
+    if (hamburgerBtn && navList) {
+        hamburgerBtn.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            const icon = hamburgerBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        navList.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+                const icon = hamburgerBtn.querySelector('i');
+                if(icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
+    }
+    
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 900) {
+            if (navList.classList.contains('active')) {
+                navList.classList.remove('active');
+                const icon = hamburgerBtn.querySelector('i');
+                if(icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+        }
+    });
+</script>
 </body>
 </html>
