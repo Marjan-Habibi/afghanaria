@@ -1,300 +1,665 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Afghan Aria Online School</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Afghan Aria Private School - Online School</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f7fc;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+        /* ========== COLOR VARIABLES ========== */
+        :root {
+            --primary: #009cab;
+            --primary-dark: #007a87;
+            --primary-light: #4fcbd8;
+            --yellow: #fff719;
+            --yellow-dark: #e6da00;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --purple: #8b5cf6;
+            --orange: #f97316;
+        }
 
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+        /* ========== HEADER ========== */
+        header {
+            background: var(--primary);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0 5%;
+        }
 
-  <style>
-    body {
-      font-family: 'Vazirmatn', sans-serif;
-      background-color: #f8f9fa;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 1rem;
+        }
 
-    /* Header */
-    header {
-      background: linear-gradient(135deg, #40d0d0, #2aa6a6);
-      color: white;
-      padding: 80px 20px 60px;
-      text-align: center;
-      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    }
-    header h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 15px;
-    }
-    header h2 {
-      font-size: 1.5rem;
-      font-weight: 400;
-      margin-bottom: 20px;
-    }
-    header p {
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: 0 auto;
-    }
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.3px;
+            white-space: nowrap;
+        }
 
-    /* Section Titles */
-    .section-title {
-      text-align: center;
-      color: #40d0d0;
-      font-weight: 700;
-      font-size: 2rem;
-      margin-bottom: 50px;
-      position: relative;
-    }
-    .section-title::after {
-      content: '';
-      width: 60px;
-      height: 4px;
-      background-color: #40d0d0;
-      display: block;
-      margin: 10px auto 0;
-      border-radius: 2px;
-    }
+        .nav-list {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            list-style: none;
+            transition: all 0.3s ease;
+        }
 
-    /* Feature Cards */
-    .feature-card {
-      background-color: white;
-      padding: 25px 15px; /* کمی جمع و جورتر */
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-    .feature-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 18px 35px rgba(0,0,0,0.15);
-    }
-    .feature-card i {
-      font-size: 2.5rem; /* کمی کوچک‌تر */
-      color: #40d0d0;
-      margin-bottom: 12px;
-    }
-    .feature-card h3 {
-      color: #333;
-      margin-bottom: 8px;
-      font-size: 1.1rem; /* کمی کوچک‌تر */
-    }
-    .feature-card p {
-      color: #555;
-      flex-grow: 1;
-      font-size: 0.95rem; /* کوچک‌تر */
-      line-height: 1.5;
-    }
+        .nav-list li a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: white;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
 
-    /* Diploma Section */
-    .diploma-section img {
-      max-height: 350px;
-      object-fit: cover;
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    }
-    .diploma-section h2 {
-      color: #40d0d0;
-      font-weight: 700;
-      margin-bottom: 25px;
-    }
-    .diploma-section p {
-      font-size: 1.05rem;
-      color: #555;
-      line-height: 1.7;
-    }
+        .nav-list li a i {
+            font-size: 0.85rem;
+            width: 1.1rem;
+            color: white;
+            transition: 0.2s;
+        }
 
-    /* Call-to-Action */
-    .cta-section {
-      padding: 80px 20px;
-      background: linear-gradient(135deg, #40d0d0, #2aa6a6);
-      color: white;
-      text-align: center;
-    }
-    .cta-section h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-    .cta-section p {
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: 0 auto 30px;
-      line-height: 1.7;
-    }
-    .cta-btn {
-      display: inline-block;
-      background-color: #ffffff;
-      color: #40d0d0;
-      font-weight: 700;
-      padding: 15px 45px;
-      font-size: 1.2rem;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: 0.3s;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-    .cta-btn:hover {
-      background-color: #f0f0f0;
-      color: #2aa6a6;
-    }
+        .nav-list li a:hover {
+            color: var(--yellow);
+            text-decoration: underline;
+        }
 
-    /* Footer */
-    footer {
-      background-color: #222;
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-      margin-top: 60px;
-    }
-    footer p {
-      margin-bottom: 5px;
-    }
-    footer small {
-      color: #aaa;
-    }
+        .nav-list li a:hover i {
+            color: var(--yellow);
+        }
 
-    /* Responsive adjustments */
-    @media(max-width:768px){
-      header h1 { font-size: 2.2rem; }
-      header h2 { font-size: 1.2rem; }
-      .cta-section h2 { font-size: 2rem; }
-    }
-  </style>
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+        }
+
+        @media screen and (max-width: 1050px) {
+            .nav-list { gap: 0.8rem; }
+            .nav-list li a { font-size: 0.75rem; }
+            .logo h1 { font-size: 1.3rem; }
+        }
+
+        @media screen and (max-width: 900px) {
+            .hamburger { display: block; }
+            .nav-list {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 75%;
+                height: calc(100vh - 70px);
+                background: var(--primary);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                padding: 2rem 2rem;
+                gap: 1.2rem;
+                box-shadow: 2px 0 25px rgba(0,0,0,0.2);
+                transition: left 0.3s ease-in-out;
+                z-index: 999;
+            }
+            .nav-list.active { left: 0; }
+            .nav-list li a { font-size: 1rem; padding: 0.3rem 0; color: white; }
+            .nav-list li a i { color: white; font-size: 1.1rem; }
+            .logo h1 { font-size: 1.2rem; }
+        }
+
+        @media screen and (max-width: 480px) {
+            .navbar { gap: 0.5rem; }
+            .logo h1 { font-size: 1rem; white-space: normal; line-height: 1.2; max-width: 200px; }
+            .hamburger { font-size: 1.5rem; }
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero-online {
+            background: linear-gradient(135deg, #009cab 0%, #004d55 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .hero-online::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,247,25,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero-online::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,247,25,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(40px, -30px) rotate(15deg); }
+        }
+
+        .hero-online h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            animation: slideDown 0.8s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-online h2 {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 1rem;
+            animation: slideDown 0.8s ease 0.1s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-online p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.85);
+            max-width: 700px;
+            margin: 0 auto;
+            animation: slideUp 0.8s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== ABOUT SECTION ========== */
+        .about-online {
+            padding: 4rem 5%;
+            background: linear-gradient(145deg, #ffffff, #f0f4f8);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .about-container h2 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .about-container p {
+            font-size: 1rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ========== FEATURES SECTION - استایل متفاوت ========== */
+        .features-section {
+            padding: 5rem 5%;
+            background: linear-gradient(120deg, #e8f4f5 0%, #d1e8ea 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 30px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--yellow));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 45px rgba(0,156,171,0.2);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #009cab, #4fcbd8);
+            border-radius: 30px 60px 30px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            transition: 0.3s;
+        }
+
+        .feature-card:hover .feature-icon {
+            border-radius: 60px 30px 60px 30px;
+            background: linear-gradient(135deg, #007a87, #009cab);
+        }
+
+        .feature-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-card p {
+            color: #555;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ========== DIPLOMA SECTION ========== */
+        .diploma-section {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .diploma-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0,156,171,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .diploma-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .diploma-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .diploma-image img {
+            max-width: 100%;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        .diploma-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .diploma-content {
+            flex: 1;
+            color: white;
+        }
+
+        .diploma-content .section-badge {
+            background: var(--yellow);
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .diploma-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .diploma-content p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .btn-register {
+            display: inline-block;
+            background: var(--yellow);
+            color: var(--dark);
+            padding: 12px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-register:hover {
+            background: #e6da00;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* ========== CTA SECTION ========== */
+        .cta-section {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #009cab 0%, #004d55 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,247,25,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section p {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--yellow);
+            color: var(--dark);
+            padding: 15px 45px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .cta-btn:hover {
+            background: #e6da00;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        /* ========== FOOTER ========== */
+        .simple-footer {
+            background: #0a0a0a;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .simple-footer p {
+            color: #777;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .simple-footer small {
+            color: #555;
+            font-size: 0.7rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-online h1 { font-size: 2rem; }
+            .hero-online h2 { font-size: 1.1rem; }
+            .diploma-container { flex-direction: column; text-align: center; }
+            .cta-section h2 { font-size: 1.8rem; }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
+<!-- HEADER -->
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <h1>Afghan Aria Private School</h1>
+        </div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+            <ul class="nav-list" id="navList">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about us.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="academic services.html"><i class="fas fa-book-open"></i> Academic Services</a></li>
+                <li><a href="aria stars.html"><i class="fas fa-laptop-code"></i> Online School</a></li>
+                <li><a href="curriculum.html"><i class="fas fa-graduation-cap"></i> Curriculum</a></li>
+                <li><a href="our classes.html"><i class="fas fa-chalkboard-user"></i> Our Classes</a></li>
+                <li><a href="registration.html"><i class="fas fa-edit"></i> Registration</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero-online">
     <h1>Afghan Aria Private School</h1>
     <h2>Six-Month Online Learning Program per Grade</h2>
     <p>Learn from professional instructors anywhere in the world. Each grade is completed in six months with interactive online classes.</p>
-  </header>
+</section>
 
-  <!-- About Online School -->
-  <section>
-    <div class="container">
-      <h2 class="section-title">About Our Online School</h2>
-      <p class="text-center fs-5">
-        Afghan Aria Online School offers a comprehensive six-month program for each grade. 
-        All classes are live, interactive, and accessible online. 
-        Get guidance from expert instructors while learning comfortably from home.
-      </p>
+<!-- ABOUT SECTION -->
+<section class="about-online">
+    <div class="about-container" data-aos="fade-up">
+        <span class="section-badge">🌟 About Our Online School</span>
+        <h2>Learn Anywhere, Anytime</h2>
+        <p>Afghan Aria Online School offers a comprehensive six-month program for each grade. All classes are live, interactive, and accessible online. Get guidance from expert instructors while learning comfortably from home.</p>
     </div>
-  </section>
+</section>
 
-  <!-- Features -->
-  <section class="bg-light">
-    <div class="container">
-      <h2 class="section-title">Key Features</h2>
-      <div class="row g-4">
-
-        <div class="col-md-6 col-lg-3 d-flex">
-          <div class="feature-card flex-fill">
-            <i class="bi bi-people-fill"></i>
+<!-- FEATURES SECTION -->
+<section class="features-section">
+    <div class="features-grid">
+        <div class="feature-card" data-aos="zoom-in">
+            <div class="feature-icon"><i class="fas fa-users"></i></div>
             <h3>Interactive Classes</h3>
             <p>Engage in live sessions with instructors and classmates directly.</p>
-          </div>
         </div>
-
-        <div class="col-md-6 col-lg-3 d-flex">
-          <div class="feature-card flex-fill">
-            <i class="bi bi-clock-fill"></i>
+        <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
+            <div class="feature-icon"><i class="fas fa-clock"></i></div>
             <h3>24/7 Access</h3>
             <p>All lessons and resources are available anytime, anywhere.</p>
-          </div>
         </div>
-
-        <div class="col-md-6 col-lg-3 d-flex">
-          <div class="feature-card flex-fill">
-            <i class="bi bi-award-fill"></i>
+        <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
+            <div class="feature-icon"><i class="fas fa-award"></i></div>
             <h3>Official Certificate</h3>
-            <p>Receive an officially recognized certificate under the Ministry of Education (ریاست معارف) after completing each six-month grade program.</p>
-          </div>
+            <p>Receive an officially recognized certificate under the Ministry of Education after completing each six-month grade program.</p>
         </div>
-
-        <div class="col-md-6 col-lg-3 d-flex">
-          <div class="feature-card flex-fill">
-            <i class="bi bi-headset"></i>
+        <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
+            <div class="feature-icon"><i class="fas fa-headset"></i></div>
             <h3>Professional Support</h3>
             <p>Our team is ready to assist you with any questions or guidance.</p>
-          </div>
         </div>
-
-      </div>
     </div>
-  </section>
+</section>
 
-  <!-- Diploma & School Info Section -->
-  <section class="diploma-section" style="padding: 80px 20px; background-color: #ffffff;">
-    <div class="container">
-      <div class="row align-items-center g-5">
-
-        <div class="col-md-6 text-center">
-          <img 
-            src="dep.png" 
-            alt="Diploma Afghan Aria School" 
-            class="img-fluid"
-          >
+<!-- DIPLOMA SECTION -->
+<section class="diploma-section">
+    <div class="diploma-container">
+        <div class="diploma-image" data-aos="fade-right">
+            <img src="dep.png" alt="Diploma Certificate" onerror="this.src='https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
         </div>
-
-        <div class="col-md-6">
-          <h2>Professional Certification & Online Learning</h2>
-          <p>
-            Afghan Aria Online School provides a six-month program for each grade recognized by the Ministry of Education (ریاست معارف افغانستان).  
-            Our curriculum ensures practical knowledge, critical thinking, and academic excellence.
-          </p>
-          <p>
-            Upon completion, students receive an official certificate, fully digital and verifiable, widely accepted for further studies or professional opportunities.
-          </p>
-          <a 
-            href="mailto:info@afghanaria.com?subject=Online School Registration" 
-            class="btn btn-primary btn-lg mt-3"
-            style="background-color: #40d0d0; border-radius: 50px; padding: 12px 35px; font-weight: 600;"
-          >
-            Register Now
-          </a>
+        <div class="diploma-content" data-aos="fade-left">
+            <span class="section-badge">🎓 Professional Certification</span>
+            <h2>Official Diploma & Online Learning</h2>
+            <p>Afghan Aria Online School provides a six-month program for each grade recognized by the Ministry of Education (ریاست معارف افغانستان). Our curriculum ensures practical knowledge, critical thinking, and academic excellence.</p>
+            <p>Upon completion, students receive an official certificate, fully digital and verifiable, widely accepted for further studies or professional opportunities.</p>
+            <a href="mailto:afghanariaprivateschools4@gmail.com?subject=Online School Registration" class="btn-register">Register Now →</a>
         </div>
-
-      </div>
     </div>
-  </section>
+</section>
 
-  <!-- Registration Call-to-Action -->
-  <section class="cta-section">
-    <div class="container">
-      <h2>Register for Online School</h2>
-      <p>
-        To enroll in our six-month online program for your grade, please send an email to our registration team. 
-        Our team will guide you through the enrollment process and answer all your questions.
-      </p>
-      <a href="mailto:info@afghanaria.com?subject=Online School Registration" class="cta-btn" target="_blank">
-        Email to Register
-      </a>
-    </div>
-  </section>
+<!-- CTA SECTION -->
+<section class="cta-section">
+    <h2 data-aos="fade-up">Register for Online School</h2>
+    <p data-aos="fade-up" data-aos-delay="100">To enroll in our six-month online program for your grade, please send an email to our registration team. Our team will guide you through the enrollment process and answer all your questions.</p>
+    <a href="mailto:afghanariaprivateschools4@gmail.com?subject=Online School Registration" class="cta-btn" data-aos="fade-up" data-aos-delay="200">
+        <i class="fas fa-envelope"></i> Email to Register
+    </a>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2026 Afghan Aria Private School | All rights reserved</p>
+<!-- FOOTER -->
+<footer class="simple-footer">
+    <p>&copy; 2026 Afghan Aria Private School | All rights reserved</p>
     <small>Address: Karte Khurasan, Mazar-i-Sharif | Under supervision of Ministry of Education</small>
-  </footer>
+</footer>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true });
+    
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navList = document.getElementById('navList');
+    if (hamburgerBtn && navList) {
+        hamburgerBtn.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            const icon = hamburgerBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        navList.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+                const icon = hamburgerBtn.querySelector('i');
+                if(icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
+    }
+    
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 900) {
+            if (navList.classList.contains('active')) {
+                navList.classList.remove('active');
+                const icon = hamburgerBtn.querySelector('i');
+                if(icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+        }
+    });
+</script>
 </body>
 </html>
