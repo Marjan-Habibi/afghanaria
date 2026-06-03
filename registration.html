@@ -1,96 +1,688 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Afghan Aria Private School</title>
-  <link rel="stylesheet" href="registration.css">
-  <script src="Java.js" defer></script>
-  <!-- Favicon -->
-  <link rel="icon" href="images/logo.png" type="image/png">
-  <link rel="apple-touch-icon" href="images/logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Afghan Aria Private School - Registration</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f7fc;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
+        /* ========== COLOR VARIABLES ========== */
+        :root {
+            --primary: #009cab;
+            --primary-dark: #007a87;
+            --primary-light: #4fcbd8;
+            --yellow: #fff719;
+            --yellow-dark: #e6da00;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --error: #ef4444;
+            --success: #10b981;
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            background: var(--primary);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0 5%;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 1rem;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.3px;
+            white-space: nowrap;
+        }
+
+        .nav-list {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            list-style: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-list li a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: white;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-list li a i {
+            font-size: 0.85rem;
+            width: 1.1rem;
+            color: white;
+            transition: 0.2s;
+        }
+
+        .nav-list li a:hover {
+            color: var(--yellow);
+            text-decoration: underline;
+        }
+
+        .nav-list li a:hover i {
+            color: var(--yellow);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+        }
+
+        @media screen and (max-width: 1050px) {
+            .nav-list { gap: 0.8rem; }
+            .nav-list li a { font-size: 0.75rem; }
+            .logo h1 { font-size: 1.3rem; }
+        }
+
+        @media screen and (max-width: 900px) {
+            .hamburger { display: block; }
+            .nav-list {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 75%;
+                height: calc(100vh - 70px);
+                background: var(--primary);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                padding: 2rem 2rem;
+                gap: 1.2rem;
+                box-shadow: 2px 0 25px rgba(0,0,0,0.2);
+                transition: left 0.3s ease-in-out;
+                z-index: 999;
+            }
+            .nav-list.active { left: 0; }
+            .nav-list li a { font-size: 1rem; padding: 0.3rem 0; color: white; }
+            .nav-list li a i { color: white; font-size: 1.1rem; }
+            .logo h1 { font-size: 1.2rem; }
+        }
+
+        @media screen and (max-width: 480px) {
+            .navbar { gap: 0.5rem; }
+            .logo h1 { font-size: 1rem; white-space: normal; line-height: 1.2; max-width: 200px; }
+            .hamburger { font-size: 1.5rem; }
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero-registration {
+            background: linear-gradient(135deg, #e8f4f5 0%, #d1e8ea 100%);
+            padding: 3rem 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-registration::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0,156,171,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -20px); }
+        }
+
+        .hero-registration .badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-registration h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-registration p {
+            color: #5a6a8a;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========== FORM SECTION ========== */
+        .form-section {
+            padding: 4rem 5%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 32px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border: 1px solid #eef2f8;
+        }
+
+        .form-container h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .form-container .form-subtitle {
+            text-align: center;
+            color: #6a7a9a;
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group label i {
+            color: var(--primary);
+            margin-right: 6px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+            transition: 0.3s;
+            background: #fafbfc;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(0,156,171,0.1);
+        }
+
+        .form-group input.error,
+        .form-group select.error,
+        .form-group textarea.error {
+            border-color: var(--error);
+        }
+
+        .error-message {
+            color: var(--error);
+            font-size: 0.7rem;
+            margin-top: 0.3rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        /* File Input Styling */
+        .file-input-wrapper {
+            position: relative;
+        }
+
+        .file-input-wrapper input[type="file"] {
+            padding: 10px;
+            background: #fafbfc;
+        }
+
+        .photo-preview {
+            margin-top: 1rem;
+            text-align: center;
+            display: none;
+        }
+
+        .photo-preview img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            padding: 3px;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,156,171,0.3);
+        }
+
+        /* Success Message */
+        .success-message {
+            background: var(--success);
+            color: white;
+            padding: 1rem;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== FOOTER ========== */
+        .simple-footer {
+            background: #0a0a0a;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .simple-footer p {
+            color: #777;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-registration h1 { font-size: 1.8rem; }
+            .form-container { padding: 1.5rem; }
+            .form-container h2 { font-size: 1.4rem; }
+        }
+    </style>
 </head>
 <body>
 
-  <header class="site-header">
-    <h1>Afghan Aria Private School</h1>
-  </header>
+<!-- HEADER -->
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <h1>Afghan Aria Private School</h1>
+        </div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+            <ul class="nav-list" id="navList">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about us.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="academic services.html"><i class="fas fa-book-open"></i> Academic Services</a></li>
+                <li><a href="aria stars.html"><i class="fas fa-laptop-code"></i> Online School</a></li>
+                <li><a href="curriculum.html"><i class="fas fa-graduation-cap"></i> Curriculum</a></li>
+                <li><a href="our classes.html"><i class="fas fa-chalkboard-user"></i> Our Classes</a></li>
+                <li><a href="registration.html"><i class="fas fa-edit"></i> Registration</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-  <div class="form-container">
-    <h2>Student Registration Form</h2>
+<!-- HERO SECTION -->
+<section class="hero-registration">
+    <div class="badge">📝 Enroll Today</div>
+    <h1>Student Registration</h1>
+    <p>Complete the form below to register your child at Afghan Aria Private School</p>
+</section>
 
-    <!-- Form connected to send_email.php -->
-    <form action="send_email.php" method="POST" enctype="multipart/form-data">
+<!-- FORM SECTION -->
+<section class="form-section">
+    <div class="form-container" data-aos="fade-up">
+        <h2>Registration Form</h2>
+        <p class="form-subtitle">Please fill in all required fields</p>
 
-      <!-- Student Photo -->
-      <div class="form-group">
-        <label for="studentPhoto">Student Photo</label>
-        <input type="file" id="studentPhoto" name="studentPhoto" accept="image/*" required>
-      </div>
+        <div id="successMessage" class="success-message">
+            <i class="fas fa-check-circle"></i> Registration submitted successfully! We will contact you soon.
+        </div>
 
-      <!-- Full Name -->
-      <div class="form-group">
-        <label for="fullName">Full Name</label>
-        <input type="text" id="fullName" name="fullName" required>
-      </div>
+        <form id="registrationForm" action="#" method="POST" enctype="multipart/form-data">
+            <!-- Student Photo -->
+            <div class="form-group">
+                <label><i class="fas fa-camera"></i> Student Photo</label>
+                <div class="file-input-wrapper">
+                    <input type="file" id="studentPhoto" name="studentPhoto" accept="image/*">
+                </div>
+                <div id="photoPreview" class="photo-preview">
+                    <img id="previewImg" src="#" alt="Preview">
+                </div>
+            </div>
 
-      <!-- Tazkira Number -->
-      <div class="form-group">
-        <label for="tazkira">Tazkira Number</label>
-        <input type="text" id="tazkira" name="tazkira" required>
-      </div>
+            <!-- Full Name -->
+            <div class="form-group">
+                <label><i class="fas fa-user"></i> Full Name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter student's full name">
+                <div class="error-message" id="fullNameError">Please enter full name</div>
+            </div>
 
-      <!-- Father's Name -->
-      <div class="form-group">
-        <label for="fatherName">Father's Name</label>
-        <input type="text" id="fatherName" name="fatherName" required>
-      </div>
+            <!-- Tazkira Number -->
+            <div class="form-group">
+                <label><i class="fas fa-id-card"></i> Tazkira Number</label>
+                <input type="text" id="tazkira" name="tazkira" placeholder="Enter Tazkira number">
+                <div class="error-message" id="tazkiraError">Please enter Tazkira number</div>
+            </div>
 
-      <!-- Date of Birth -->
-      <div class="form-group">
-        <label for="dob">Date of Birth</label>
-        <input type="date" id="dob" name="dob" required>
-      </div>
+            <!-- Father's Name -->
+            <div class="form-group">
+                <label><i class="fas fa-user-friends"></i> Father's Name</label>
+                <input type="text" id="fatherName" name="fatherName" placeholder="Enter father's full name">
+                <div class="error-message" id="fatherNameError">Please enter father's name</div>
+            </div>
 
-      <!-- Gender -->
-      <div class="form-group">
-        <label for="gender">Gender</label>
-        <select id="gender" name="gender" required>
-          <option value="">-- Select Gender --</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
-      </div>
+            <!-- Date of Birth -->
+            <div class="form-group">
+                <label><i class="fas fa-calendar-alt"></i> Date of Birth</label>
+                <input type="date" id="dob" name="dob">
+                <div class="error-message" id="dobError">Please select date of birth</div>
+            </div>
 
-      <!-- Class -->
-      <div class="form-group">
-        <label for="class">Class</label>
-        <input type="text" id="class" name="class" required>
-      </div>
+            <!-- Gender -->
+            <div class="form-group">
+                <label><i class="fas fa-venus-mars"></i> Gender</label>
+                <select id="gender" name="gender">
+                    <option value="">-- Select Gender --</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <div class="error-message" id="genderError">Please select gender</div>
+            </div>
 
-      <!-- Address -->
-      <div class="form-group">
-        <label for="address">Home Address</label>
-        <textarea id="address" name="address" rows="3" required></textarea>
-      </div>
+            <!-- Class -->
+            <div class="form-group">
+                <label><i class="fas fa-graduation-cap"></i> Class</label>
+                <select id="class" name="class">
+                    <option value="">-- Select Class --</option>
+                    <option value="Kindergarten">Kindergarten</option>
+                    <option value="Class 1">Class 1</option>
+                    <option value="Class 2">Class 2</option>
+                    <option value="Class 3">Class 3</option>
+                    <option value="Class 4">Class 4</option>
+                    <option value="Class 5">Class 5</option>
+                    <option value="Class 6">Class 6</option>
+                    <option value="Preparatory">Preparatory Class</option>
+                </select>
+                <div class="error-message" id="classError">Please select class</div>
+            </div>
 
-      <!-- Phone Number -->
-      <div class="form-group">
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="phone" required>
-      </div>
+            <!-- Address -->
+            <div class="form-group">
+                <label><i class="fas fa-map-marker-alt"></i> Home Address</label>
+                <textarea id="address" name="address" rows="3" placeholder="Enter complete home address"></textarea>
+                <div class="error-message" id="addressError">Please enter address</div>
+            </div>
 
-      <!-- Email -->
-      <div class="form-group">
-        <label for="email">Email Address (optional)</label>
-        <input type="email" id="email" name="email">
-      </div>
+            <!-- Phone Number -->
+            <div class="form-group">
+                <label><i class="fas fa-phone-alt"></i> Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter phone number (e.g., 077XXXXXXX)">
+                <div class="error-message" id="phoneError">Please enter valid phone number</div>
+            </div>
 
-      <!-- Submit -->
-      <button type="submit" class="submit-btn">Register</button>
+            <!-- Email -->
+            <div class="form-group">
+                <label><i class="fas fa-envelope"></i> Email Address (optional)</label>
+                <input type="email" id="email" name="email" placeholder="Enter email address">
+                <div class="error-message" id="emailError">Please enter valid email</div>
+            </div>
 
-    </form>
-  </div>
+            <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Register Student</button>
+        </form>
+    </div>
+</section>
 
+<!-- FOOTER -->
+<footer class="simple-footer">
+    <p>&copy; 2025 Afghan Aria School | Made By Marjan Habibi, All rights reserved.</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true });
+    
+    // Hamburger Menu
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navList = document.getElementById('navList');
+    if (hamburgerBtn && navList) {
+        hamburgerBtn.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            const icon = hamburgerBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        navList.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+                const icon = hamburgerBtn.querySelector('i');
+                if(icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
+    }
+    
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 900) {
+            if (navList.classList.contains('active')) {
+                navList.classList.remove('active');
+                const icon = hamburgerBtn.querySelector('i');
+                if(icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+        }
+    });
+
+    // Photo Preview
+    const photoInput = document.getElementById('studentPhoto');
+    const photoPreview = document.getElementById('photoPreview');
+    const previewImg = document.getElementById('previewImg');
+
+    photoInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                previewImg.src = event.target.result;
+                photoPreview.style.display = 'block';
+            }
+            reader.readAsDataURL(file);
+        } else {
+            photoPreview.style.display = 'none';
+        }
+    });
+
+    // Form Validation
+    const form = document.getElementById('registrationForm');
+    const successMsg = document.getElementById('successMessage');
+
+    function validateForm() {
+        let isValid = true;
+        
+        // Helper function
+        function checkField(id, errorId, condition) {
+            const field = document.getElementById(id);
+            const error = document.getElementById(errorId);
+            if (condition(field.value)) {
+                field.classList.remove('error');
+                error.classList.remove('show');
+                return true;
+            } else {
+                field.classList.add('error');
+                error.classList.add('show');
+                return false;
+            }
+        }
+        
+        // Full Name
+        isValid &= checkField('fullName', 'fullNameError', val => val.trim() !== '');
+        
+        // Tazkira
+        isValid &= checkField('tazkira', 'tazkiraError', val => val.trim() !== '');
+        
+        // Father Name
+        isValid &= checkField('fatherName', 'fatherNameError', val => val.trim() !== '');
+        
+        // DOB
+        isValid &= checkField('dob', 'dobError', val => val !== '');
+        
+        // Gender
+        isValid &= checkField('gender', 'genderError', val => val !== '');
+        
+        // Class
+        isValid &= checkField('class', 'classError', val => val !== '');
+        
+        // Address
+        isValid &= checkField('address', 'addressError', val => val.trim() !== '');
+        
+        // Phone
+        isValid &= checkField('phone', 'phoneError', val => val.trim() !== '' && /^[0-9+\-\s]{8,15}$/.test(val));
+        
+        // Email (optional but validate if provided)
+        const email = document.getElementById('email');
+        const emailError = document.getElementById('emailError');
+        if (email.value.trim() !== '') {
+            const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value);
+            if (!emailValid) {
+                email.classList.add('error');
+                emailError.classList.add('show');
+                isValid = false;
+            } else {
+                email.classList.remove('error');
+                emailError.classList.remove('show');
+            }
+        } else {
+            email.classList.remove('error');
+            emailError.classList.remove('show');
+        }
+        
+        return isValid;
+    }
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        if (validateForm()) {
+            // Show success message
+            successMsg.classList.add('show');
+            
+            // Reset form
+            form.reset();
+            photoPreview.style.display = 'none';
+            
+            // Remove error classes
+            document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(field => {
+                field.classList.remove('error');
+            });
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMsg.classList.remove('show');
+            }, 5000);
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    });
+    
+    // Real-time validation cleanup
+    const inputs = ['fullName', 'tazkira', 'fatherName', 'dob', 'gender', 'class', 'address', 'phone'];
+    inputs.forEach(id => {
+        const field = document.getElementById(id);
+        const error = document.getElementById(`${id}Error`);
+        if (field && error) {
+            field.addEventListener('input', () => {
+                if (field.value.trim() !== '') {
+                    field.classList.remove('error');
+                    error.classList.remove('show');
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>
