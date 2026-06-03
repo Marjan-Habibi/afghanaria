@@ -2,75 +2,601 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Afghan Aria Private School</title>
-    <link rel="stylesheet" href="curriculum.css">
-     <!-- Favicon -->
-     <link rel="icon" href="images/logo.png" type="image/png">
-     <!-- Favicon برای مرورگرهای قدیمی -->
-     <link rel="icon" href="images/logo.png" type="image/x-icon">
-     <!-- برای Apple Devices -->
-     <link rel="apple-touch-icon" href="images/logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Afghan Aria Private School - Curriculum</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f0f4f8;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
+        /* ========== COLOR VARIABLES ========== */
+        :root {
+            --primary: #009cab;
+            --primary-dark: #007a87;
+            --primary-light: #4fcbd8;
+            --yellow: #fff719;
+            --yellow-dark: #e6da00;
+            --purple: #8b5cf6;
+            --orange: #f97316;
+            --pink: #ec4899;
+            --green: #10b981;
+            --dark: #0f172a;
+            --light: #f8fafc;
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            background: var(--primary);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0 5%;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 1rem;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.3px;
+            white-space: nowrap;
+        }
+
+        .nav-list {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            list-style: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-list li a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: white;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-list li a i {
+            font-size: 0.85rem;
+            width: 1.1rem;
+            color: white;
+            transition: 0.2s;
+        }
+
+        .nav-list li a:hover {
+            color: var(--yellow);
+            text-decoration: underline;
+        }
+
+        .nav-list li a:hover i {
+            color: var(--yellow);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+        }
+
+        @media screen and (max-width: 1050px) {
+            .nav-list { gap: 0.8rem; }
+            .nav-list li a { font-size: 0.75rem; }
+            .logo h1 { font-size: 1.3rem; }
+        }
+
+        @media screen and (max-width: 900px) {
+            .hamburger { display: block; }
+            .nav-list {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 75%;
+                height: calc(100vh - 70px);
+                background: var(--primary);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                padding: 2rem 2rem;
+                gap: 1.2rem;
+                box-shadow: 2px 0 25px rgba(0,0,0,0.2);
+                transition: left 0.3s ease-in-out;
+                z-index: 999;
+            }
+            .nav-list.active { left: 0; }
+            .nav-list li a { font-size: 1rem; padding: 0.3rem 0; color: white; }
+            .nav-list li a i { color: white; font-size: 1.1rem; }
+            .logo h1 { font-size: 1.2rem; }
+        }
+
+        @media screen and (max-width: 480px) {
+            .navbar { gap: 0.5rem; }
+            .logo h1 { font-size: 1rem; white-space: normal; line-height: 1.2; max-width: 200px; }
+            .hamburger { font-size: 1.5rem; }
+        }
+
+        /* ========== HERO SECTION با انیمیشن ========== */
+        .hero-curriculum {
+            background: linear-gradient(135deg, #009cab 0%, #003d44 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .hero-curriculum::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,247,25,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-curriculum::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(255,247,25,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(30px, -20px) rotate(10deg); }
+        }
+
+        .hero-curriculum h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            animation: slideDown 0.8s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-curriculum p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 700px;
+            margin: 0 auto;
+            animation: slideUp 0.8s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== GRADES SECTION ========== */
+        .grades-showcase {
+            padding: 5rem 5%;
+            background: linear-gradient(120deg, #fef9e0 0%, #e8f4f5 100%);
+        }
+
+        .section-badge {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-badge span {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .section-badge h2 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            margin-top: 1rem;
+        }
+
+        .grades-wave {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            perspective: 1000px;
+        }
+
+        .grade-item {
+            background: white;
+            width: 110px;
+            text-align: center;
+            padding: 1.5rem 0.5rem;
+            border-radius: 60% 40% 50% 50% / 45% 50% 50% 55%;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        .grade-item:nth-child(1) { background: linear-gradient(135deg, #009cab, #00b4c8); }
+        .grade-item:nth-child(2) { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+        .grade-item:nth-child(3) { background: linear-gradient(135deg, #f97316, #ea580c); }
+        .grade-item:nth-child(4) { background: linear-gradient(135deg, #ec4899, #db2777); }
+        .grade-item:nth-child(5) { background: linear-gradient(135deg, #10b981, #059669); }
+        .grade-item:nth-child(6) { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .grade-item:nth-child(7) { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+        .grade-item:nth-child(8) { background: linear-gradient(135deg, #ef4444, #dc2626); }
+        .grade-item:nth-child(9) { background: linear-gradient(135deg, #14b8a6, #0d9488); }
+
+        .grade-item:hover {
+            transform: translateY(-15px) rotate(2deg);
+            box-shadow: 0 25px 40px rgba(0,0,0,0.25);
+        }
+
+        .grade-item h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .grade-item p {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.9);
+            margin-top: 0.3rem;
+        }
+
+        /* ========== SUBJECTS SECTION - پس‌زمینه فیروزه‌ای با کارت‌های سفید ========== */
+        .subjects-galaxy {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #009cab 0%, #4fcbd8 100%);
+            position: relative;
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .subject-card {
+            background: white;
+            border-radius: 30px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.5s;
+            border: 2px solid transparent;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .subject-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: var(--yellow);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .subject-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .subject-card:hover i {
+            transform: rotateY(180deg);
+            color: var(--yellow-dark);
+        }
+
+        .subject-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .subject-card p {
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        /* ========== FEATURES SECTION ========== */
+        .features-magnetic {
+            padding: 5rem 5%;
+            background: linear-gradient(145deg, #fff9c4, #ffeaa7);
+        }
+
+        .features-flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .feature-magnet {
+            background: white;
+            flex: 1;
+            min-width: 250px;
+            padding: 2rem;
+            border-radius: 48px 20px 48px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 20px 20px 30px rgba(0,0,0,0.05);
+        }
+
+        .feature-magnet:hover {
+            border-radius: 20px 48px 20px 48px;
+            transform: translateX(8px) translateY(-8px);
+            box-shadow: 30px 30px 40px rgba(0,0,0,0.1);
+        }
+
+        .feature-magnet .icon-circle {
+            width: 70px;
+            height: 70px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem;
+            transition: 0.3s;
+        }
+
+        .feature-magnet:hover .icon-circle {
+            background: var(--yellow);
+            transform: scale(1.1);
+        }
+
+        .feature-magnet .icon-circle i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature-magnet h3 {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-magnet p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* ========== STATS SECTION ========== */
+        .stats-section {
+            padding: 4rem 5%;
+            background: linear-gradient(120deg, #009cab, #003d44);
+        }
+
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--yellow);
+        }
+
+        .stat-label {
+            color: white;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* ========== FOOTER ساده - فقط کپی رایت ========== */
+        .simple-footer {
+            background: #0a0a0a;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 0;
+        }
+
+        .simple-footer p {
+            color: #777;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-curriculum h1 { font-size: 2rem; }
+            .section-badge h2 { font-size: 1.6rem; }
+            .grade-item { width: 80px; padding: 1rem 0.3rem; }
+            .grade-item h3 { font-size: 1.2rem; }
+        }
+    </style>
 </head>
 <body>
-      <!-- <header section> -->
-        <header>
-            <div class="logo">
-                <h1 class="logo">Afghan Aria Private School</h1>
-            </div>
-            <nav>
-                 <li><a href="index.html">Home</a></li>
-    <li><a href="about us.html">About Us</a></li>
-    <li><a href="academic services.html">Academic Services</a></li>
-    <li><a href="aria stars.html">Online School</a></li>
-    <li><a href="curriculum.html">Curriculum</a></li>
-    <li><a href="our classes.html">Our Classes</a></li>
-    <li><a href="registration.html">Registration</a></li>
-    </ul>
-                </nav>
-        </header>
-    <section class="curriculum-section">
-        <div class="curriculum-container">
-          <h1 class="curriculum-title">Our Curriculum</h1>
-          <p class="curriculum-description">
-            At Afghan Aria Private School, our curriculum is designed to empower students with knowledge, creativity, and life skills. We offer a balance of academic subjects and extracurricular programs to ensure holistic development.
-          </p>
-      
-          <div class="curriculum-grid">
-            <div class="curriculum-card">
-              <h3>Mathematics & Science</h3>
-              <p>Logical reasoning, scientific thinking, and problem-solving through modern methods and labs.</p>
-            </div>
-            <div class="curriculum-card">
-              <h3>Languages</h3>
-              <p>Classes in Dari, Pashto, English, and Arabic to promote multilingual communication and cultural understanding.</p>
-            </div>
-            <div class="curriculum-card">
-              <h3>Technology & ICT</h3>
-              <p>Computer literacy, programming basics, and internet safety to prepare students for the digital world.</p>
-            </div>
-            <div class="curriculum-card">
-              <h3>Arts & Creativity</h3>
-              <p>Drawing, music, drama, and crafts to foster expression and creative talents.</p>
-            </div>
-            <div class="curriculum-card">
-              <h3>Physical Education</h3>
-              <p>Regular sports, fitness sessions, and team-building activities for a healthy and active lifestyle.</p>
-            </div>
-            <div class="curriculum-card">
-              <h3>Islamic Studies</h3>
-              <p>Teaching moral values, Islamic principles, and respectful living through meaningful lessons.</p>
-            </div>
-          </div>
+
+<!-- HEADER -->
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <h1>Afghan Aria Private School</h1>
         </div>
-      </section>
-      <!-- Copyright -->
-  <div class="footer-bottom">
-    <p>&copy; 2025 Afghan Aria School. All rights reserved.</p>
-  </div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+            <ul class="nav-list" id="navList">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about us.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="academic services.html"><i class="fas fa-book-open"></i> Academic Services</a></li>
+                <li><a href="aria stars.html"><i class="fas fa-laptop-code"></i> Online School</a></li>
+                <li><a href="curriculum.html"><i class="fas fa-graduation-cap"></i> Curriculum</a></li>
+                <li><a href="our classes.html"><i class="fas fa-chalkboard-user"></i> Our Classes</a></li>
+                <li><a href="registration.html"><i class="fas fa-edit"></i> Registration</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero-curriculum">
+    <h1>📚 Our Learning Universe</h1>
+    <p>From Grade 1 to Grade 9 — A journey of discovery, innovation, and excellence. Empowering young minds with modern education and advanced facilities.</p>
+</section>
+
+<!-- GRADES SECTION -->
+<section class="grades-showcase">
+    <div class="section-badge">
+        <span>🎓 Academic Journey</span>
+        <h2>Classes from Grade 1 to 9</h2>
+    </div>
+    <div class="grades-wave">
+        <div class="grade-item" data-aos="zoom-in"><h3>1</h3><p>Foundation</p></div>
+        <div class="grade-item" data-aos="zoom-in" data-aos-delay="50"><h3>2</h3><p>Explorer</p></div>
+        <div class="grade-item" data-aos="zoom-in" data-aos-delay="100"><h3>3</h3><p>Curious</p></div>
+        <div class="grade-item" data-aos="zoom-in" data-aos-delay="150"><h3>4</h3><p>Thinker</p></div>
+        <div class="grade-item" data-aos="zoom-in" data-aos-delay="200"><h3>5</h3><p>Innovator</p></div>
+        <div class="grade-item" data-aos="zoom-in" data-aos-delay="250"><h3>6</h3><p>Analyst</p></div>
+        <div class="grade-item" data-aos="zoom-in" data-aos-delay="300"><h3>7</h3><p>Leader</p></div>
+        <div class="grade-item" data-aos="zoom-in" data-aos-delay="350"><h3>8</h3><p>Strategist</p></div>
+        <div class="grade-item" data-aos="zoom-in" data-aos-delay="400"><h3>9</h3><p>Graduate</p></div>
+    </div>
+</section>
+
+<!-- SUBJECTS SECTION - پس‌زمینه فیروزه‌ای -->
+<section class="subjects-galaxy">
+    <div class="section-badge">
+        <span>✨ Core Curriculum</span>
+        <h2 style="color:white;">Academic Excellence</h2>
+    </div>
+    <div class="subjects-grid">
+        <div class="subject-card" data-aos="flip-left"><i class="fas fa-calculator"></i><h3>Mathematics & Science</h3><p>Advanced logic & modern labs</p></div>
+        <div class="subject-card" data-aos="flip-left" data-aos-delay="100"><i class="fas fa-language"></i><h3>Languages</h3><p>Dari, Pashto, English, Arabic</p></div>
+        <div class="subject-card" data-aos="flip-left" data-aos-delay="200"><i class="fas fa-laptop-code"></i><h3>Technology & ICT</h3><p>Robotics, AI & Programming</p></div>
+        <div class="subject-card" data-aos="flip-left" data-aos-delay="300"><i class="fas fa-palette"></i><h3>Arts & Creativity</h3><p>Music, Drama & Crafts</p></div>
+        <div class="subject-card" data-aos="flip-left" data-aos-delay="400"><i class="fas fa-futbol"></i><h3>Physical Education</h3><p>Sports & Fitness</p></div>
+        <div class="subject-card" data-aos="flip-left" data-aos-delay="500"><i class="fas fa-mosque"></i><h3>Islamic Studies</h3><p>Moral Values & Principles</p></div>
+    </div>
+</section>
+
+<!-- FEATURES SECTION -->
+<section class="features-magnetic">
+    <div class="section-badge">
+        <span>🚀 Advanced Programs</span>
+        <h2>Beyond the Classroom</h2>
+    </div>
+    <div class="features-flex">
+        <div class="feature-magnet" data-aos="fade-up"><div class="icon-circle"><i class="fas fa-flask"></i></div><h3>Science Lab</h3><p>Fully equipped for experiments</p></div>
+        <div class="feature-magnet" data-aos="fade-up" data-aos-delay="100"><div class="icon-circle"><i class="fas fa-microchip"></i></div><h3>Robotics Club</h3><p>AI & Coding fundamentals</p></div>
+        <div class="feature-magnet" data-aos="fade-up" data-aos-delay="200"><div class="icon-circle"><i class="fas fa-heartbeat"></i></div><h3>Health Programs</h3><p>Check-ups & wellness</p></div>
+        <div class="feature-magnet" data-aos="fade-up" data-aos-delay="300"><div class="icon-circle"><i class="fas fa-users"></i></div><h3>Student Clubs</h3><p>Debate & Science Club</p></div>
+        <div class="feature-magnet" data-aos="fade-up" data-aos-delay="400"><div class="icon-circle"><i class="fas fa-chalkboard"></i></div><h3>Smart Classrooms</h3><p>Interactive learning</p></div>
+        <div class="feature-magnet" data-aos="fade-up" data-aos-delay="500"><div class="icon-circle"><i class="fas fa-bus"></i></div><h3>Transport</h3><p>Safe & reliable service</p></div>
+    </div>
+</section>
+
+<!-- STATS SECTION -->
+<section class="stats-section">
+    <div class="stats-container">
+        <div class="stat-card"><div class="stat-number">9</div><div class="stat-label">Grades</div></div>
+        <div class="stat-card"><div class="stat-number">500+</div><div class="stat-label">Students</div></div>
+        <div class="stat-card"><div class="stat-number">40+</div><div class="stat-label">Teachers</div></div>
+        <div class="stat-card"><div class="stat-number">10+</div><div class="stat-label">Clubs & Activities</div></div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="simple-footer">
+    <p>&copy; 2025 Afghan Aria School | Made By Marjan Habibi, All rights reserved.</p>
 </footer>
-<!-- Footer End -->
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true });
+    
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navList = document.getElementById('navList');
+    if (hamburgerBtn && navList) {
+        hamburgerBtn.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            const icon = hamburgerBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        navList.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+                const icon = hamburgerBtn.querySelector('i');
+                if(icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
+    }
+    
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 900) {
+            if (navList.classList.contains('active')) {
+                navList.classList.remove('active');
+                const icon = hamburgerBtn.querySelector('i');
+                if(icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+        }
+    });
+</script>
 </body>
-
 </html>
